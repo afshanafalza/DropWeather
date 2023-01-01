@@ -1,0 +1,92 @@
+.item1 { grid-area: header; }
+.item2 { grid-area: menu; }
+.item3 { grid-area: hourly; }
+.item4 { grid-area: right; }
+.item6 { grid-area: weekly; }
+
+
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden; 
+}
+
+.background-images {
+    /* The image used */
+    background-image: url("assets/backgrounds/morning-sunny.gif");
+  
+    /* Add the blur effect */
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+main {
+  display: grid;
+  grid-template-areas:
+    'header header header header header menu menu'
+    'weekly weekly weekly weekly weekly menu menu '
+    'hourly hourly hourly right right menu menu'
+    'hourly hourly hourly right right menu menu';
+  gap: 1px;
+  background-color: #dde6ed31;
+  padding: 10px;
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+main > div {
+  background-color: rgba(255, 255, 255, 0.282);
+  text-align: left;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+main > .item2 {
+    background-color: rgba(126, 126, 126, 0.429);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+  }
+
+  main > .item6 > * {
+    display: inline-block;
+    width: 95px;
+    height: 145px;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    filter: drop-shadow(0px 4px 10px rgba(129, 171, 189, 0.3));
+    font-size: 14px;
+    color:white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+#today{
+    background: rgba(177, 221, 240, 0.7);
+    box-shadow: 0px 4px 10px 1px rgba(122, 191, 220, 0.3);
+    width: 145px;
+}
+
+.title{
+    background-color: rgba(0, 0, 0, 0.132);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    padding: 5px;
+    text-align: center;
+}
+
+#today > .title{
+    text-align: left;
+}
