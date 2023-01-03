@@ -4,11 +4,19 @@
 .item4 { grid-area: right; }
 .item6 { grid-area: weekly; }
 
+#UV { grid-area: uv; }
+#air { grid-area: air; }
+#rain { grid-area: rain; }
+#humid { grid-area: humid; }
+#sun { grid-area: sun; }
+#visibility { grid-area: visibility;}
 
 body, html {
     height: 100%;
     margin: 0;
     overflow: hidden; 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
 }
 
 .background-images {
@@ -29,36 +37,77 @@ body, html {
   }
 
 main {
-  display: grid;
+ background-color: #dde6ed31;
+ display: grid;
+ align-content: stretch;
+ justify-content: space-between;
+ align-items: normal;
+ justify-items: stretch;
   grid-template-areas:
-    'header header header header header menu menu'
-    'weekly weekly weekly weekly weekly menu menu '
-    'hourly hourly hourly right right menu menu'
-    'hourly hourly hourly right right menu menu';
+    'header header header header header header menu menu'
+    'weekly weekly weekly weekly weekly weekly menu menu '
+    'hourly hourly hourly right right right menu menu'
+    'hourly hourly hourly right right right menu menu';
+    grid-template-rows: 0.2fr 0fr auto auto;
   gap: 1px;
-  background-color: #dde6ed31;
   padding: 10px;
   position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  /*align-items: center;*/
+  
 }
 
 main > div {
-  background-color: rgba(255, 255, 255, 0.282);
   text-align: left;
-  padding: 20px 0;
   font-size: 30px;
+
+}
+
+#clock{
+ font-size: 40px;
+ padding: 20px;
+ justify-content: left;
 }
 
 main > .item2 {
-    background-color: rgba(126, 126, 126, 0.429);
+    background-color: rgba(216, 216, 216, 0.429);
     text-align: center;
-    padding: 20px 0;
+    padding: 20px 125px;
     font-size: 30px;
+  }
+
+  main > .item3 {
+    text-align: center;
+    filter: drop-shadow(0px 4px 10px rgba(129, 171, 189, 0.3));
+    font-size: 14px;
+    color: white;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+  }
+
+  main > .item6{
+    display: flex;
+    justify-content: center;
+  }
+
+  main > .item3 > * {
+    display: inline-block;
+    width: 90%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    filter: drop-shadow(0px 4px 10px rgba(129, 171, 189, 0.3));
+    font-size: 14px;
+    color:white;
   }
 
   main > .item6 > * {
@@ -70,7 +119,7 @@ main > .item2 {
     filter: drop-shadow(0px 4px 10px rgba(129, 171, 189, 0.3));
     font-size: 14px;
     color:white;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 20px;
   }
 
 #today{
@@ -80,7 +129,7 @@ main > .item2 {
 }
 
 .title{
-    background-color: rgba(0, 0, 0, 0.132);
+    background-color: rgba(0, 0, 0, 0.4);
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     padding: 5px;
@@ -89,4 +138,20 @@ main > .item2 {
 
 #today > .title{
     text-align: left;
+    background-color: rgb(122, 190, 220, 0.8);
+}
+
+
+.item4{
+  display: grid;
+ align-content: space-around;
+ justify-content: space-evenly;
+ align-items: normal;
+ justify-items: normal;
+  grid-template-areas:
+    'uv air '
+    'sun humid '
+    'visibility rain';
+    grid-template-rows: auto auto;
+ font-size: 14px;
 }
