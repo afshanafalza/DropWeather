@@ -1,0 +1,48 @@
+.flex0 {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 54px;
+}
+
+.flex1 {
+    display: flex;
+    flex-direction: column;
+    gap: 58px;
+    padding-left: 58px;
+}
+
+.flex2 {
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+}
+
+.flex3 {
+    display: flex;
+    gap: 34px;
+}
+
+.flex4 {
+    display: flex;
+    flex-direction: column;
+    gap: 58px;
+}
+
+.flex5 {
+    display: flex;
+    gap: 30px;
+}
+
+.flex6 {
+    display: flex;
+    flex-direction: column;
+    padding-right: 30px;
+    gap: 70px;
+}
+
+.flex7 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 58px;
+}
