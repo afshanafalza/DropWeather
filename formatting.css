@@ -5,9 +5,12 @@
     transform: translate(-50%, -50%);
     z-index: 2;
     width: 100%;
+    height: 100%;
     text-align: center;
     display: flex;
     justify-content: space-between;
+    overflow:hidden;
+  
 }
 
 .blur-bg{
@@ -47,7 +50,8 @@
     flex-direction: column;
     gap: 58px;
     padding-left: 58px;
-    margin-top: 200px;
+    padding-top: 50px;
+    overflow: auto;
 }
 
 .flex2 {
@@ -76,7 +80,7 @@
 .flex6 {
     background-color: rgb(91, 91, 91, 0.4);
     display: flex;
-    padding-top: 200px;
+    padding-top: 50px;
     flex-direction: column;
     padding-right: 58px;
     padding-left: 68px;
@@ -88,4 +92,18 @@
     flex-direction: column;
     align-items: center;
     gap: 58px;
+}
+
+.current-value{
+    float: left;
+}
+
+.current-color{
+    float: right;
+}
+
+.current-text{
+    text-align: left;
+    clear:both;
+    padding-top: 10px;
 }
