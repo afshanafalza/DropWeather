@@ -50,7 +50,7 @@ body, html {
     height: 145px;
 
     background: rgba(0, 0, 0, 0.25);
-    box-shadow: 0px 4px 10px 1px rgba(122, 191, 220, 0.3);
+    box-shadow: 0px 4px 10px 1px #7abfdc4d;
     border-radius: 12px;
 }
 
@@ -90,13 +90,94 @@ body, html {
     border-radius: 16px;
 }
 
-.rect6 {
+.rect6 > input {
     width: 239px;
     height: 42px;
     margin-top: 24px;
     background: #FFFFFF;
     box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.49);
     border-radius: 18px;
+}
+
+.input-contain{
+  position: relative;
+  margin-top: 24px;
+  background: #FFFFFF;
+  border-radius: 22px;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.49);
+}
+
+input{
+  height: 42px;
+  border-color: transparent;
+  text-align: center;
+  border-radius: 22px;
+}
+
+.placeholder-text{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  border: 3px solid transparent;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.text{
+  font-size: 1.4rem;
+  padding: 1px 1rem;
+  background-color: transparent;
+  color:#818494;
+  transform: translate(0);
+  transition: transform 0.15s ease-out, font-size 0.15s ease-out, background-color 0.2s ease-out, color 0.15s ease-out;
+
+}
+
+input:focus{
+  outline: none;
+  border-color:  rgba(122, 191, 220, 0.3);
+}
+
+input:focus + .placeholder-text .text{
+  background-color: rgba(255, 255, 255, 0);
+  font-size: 1.1rem;
+  color: #818494;
+  transform: translate(0, -170%);
+  border-color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+}
+
+input:focus + .placeholder-text .text, :not(input[value=""]) + .placeholder-text .text{
+  background-color: rgba(255, 255, 255, 0);
+  font-size: 1.1rem;
+  color: white;
+  transform: translate(0, -170%);
+}
+
+input:focus + .placeholder-text .text{
+  border-color: #7abfdc4d;
+  color: white;
+}
+
+button[type="submit"] {
+  text-indent: -999px;
+  overflow: hidden;
+  width: 40px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: inherit;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+button[type="submit"]:hover {
+  opacity: 1;
 }
 
 .rect7 {

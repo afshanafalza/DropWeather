@@ -229,7 +229,15 @@
         <!-- Location Finder -->
         <div class="flex6">
             <!-- Search Bar Area -->
-            <div class="rect6"></div>
+            <div class="rect6">
+                <div class="input-contain">
+                    <input type="text" id="fname" name="fname" autocomplete="off" value="" aria-labelledby="placeholder-fname">
+                    <label class="placeholder-text" for="fname" id="placeholder-text">
+                       <div class="text">Search Location</div>
+                    </label>
+                    <button type="submit">Search</button>
+                </div>
+            </div>
             <!-- Location Options -->
             <div class="flex7">
                 <div class="rect7">
@@ -243,4 +251,11 @@
     </div>
 </body>
 
+<script>
+    const input = document.getElementById('fname');
+
+input.addEventListener('input', () => {
+  input.setAttribute('value', input.value);
+});
+</script>
 </html>
