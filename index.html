@@ -1,85 +1,164 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title> Drop Weather </title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="formatting.css" rel="stylesheet" type="text/css" />
+
 </head>
+
 <body>
 
-<div class="background-images"></div>
+    <!-- Background Image -->
+    <div class="background-images"></div>
 
-<main>
-  <div class="item1">
-    
-    <div id="clock">Imagine there is a clock here, ok? luv u <3</div>
-
-  </div>
-  <div class="item6">
-
- 
-    <div id="today">
-        <div class="title"> Monday </div>
+    <div class="blur-bg"></div>
+    <!-- Entire Page -->
+    <div class="flex0">
+        <!-- All Weather Info -->
+        <div class="flex1">
+            <!-- Time and Location Info -->
+            <div class="time">
+                8:46 AM
+                <div class="location">Flushing, NY</div>
+            </div>
+            <!-- Days Section -->
+            <div class="flex2">
+                <!-- Current Day -->
+                <div class="rect1">
+                    <div class="title"> Mon </div>
+                    <div class="icon"> Icon </div>
+                </div>
+                <!-- Remaining Days -->
+                <div class="rect2">
+                    <div class="title"> Tue </div>
+                    <div class="icon"> Icon </div>
+                </div>
+                <div class="rect2">
+                    <div class="title"> Wed </div>
+                    <div class="icon"> Icon </div>
+                </div>
+                <div class="rect2">
+                    <div class="title"> Thu </div>
+                </div>
+                <div class="rect2">
+                    <div class="title"> Fri </div>
+                </div>
+                <div class="rect2">
+                    <div class="title"> Sat </div>
+                </div>    
+                <div class="rect2">
+                    <div class="title"> Sun </div>
+                </div>    
+            </div>
+            <!-- Other Weather Info -->
+            <div class="flex3">
+                <!-- Hourly Forecast Section -->
+                <div class="rect3">
+                    <div class="title"> Hourly Forecast </div>
+                    <table>
+                        <tr>
+                            <td>2AM</td>
+                            <td>Icon</td>
+                            <td>Lovely</td>
+                        </tr>
+                        <tr>
+                            <td>3AM</td>
+                            <td>Icon</td>
+                            <td>Windy</td>
+                        </tr>
+                        <tr>
+                            <td>4AM</td>
+                            <td>Icon</td>
+                            <td>Sunny</td>
+                        </tr>
+                        <tr>
+                            <td>5AM</td>
+                            <td>Icon</td>
+                            <td>Tight</td>
+                        </tr>
+                        <tr>
+                            <td>2AM</td>
+                            <td>Icon</td>
+                            <td>Lovely</td>
+                        </tr>
+                        <tr>
+                            <td>3AM</td>
+                            <td>Icon</td>
+                            <td>Windy</td>
+                        </tr>
+                        <tr>
+                            <td>4AM</td>
+                            <td>Icon</td>
+                            <td>Sunny</td>
+                        </tr>
+                        <tr>
+                            <td>2AM</td>
+                            <td>Icon</td>
+                            <td>Lovely</td>
+                        </tr>
+                        <tr>
+                            <td>3AM</td>
+                            <td>Icon</td>
+                            <td>Windy</td>
+                        </tr>
+                        <tr class="last-table">
+                            <td>4AM</td>
+                            <td>Icon</td>
+                            <td>Last</td>
+                        </tr>
+                      </table>
+                </div>
+                <!-- Other Conditions Section -->
+                <div class="flex4">
+                    <!-- UV Index and Air Quality Section -->
+                    <div class="flex5">
+                        <div class="rect5">
+                            <div class="title"> UV Index </div>
+                        </div>
+                        <div class="rect5">
+                            <div class="title"> Air Quality </div>
+                        </div>
+                    </div>
+                    <!-- Rainfall and Humidity -->
+                    <div class="flex5">
+                        <div class="rect5">
+                            <div class="title"> Rainfall </div>
+                        </div>
+                        <div class="rect5">
+                            <div class="title"> Humidity </div>
+                        </div>
+                    </div>
+                    <!-- Sunset and Sunrise and Visibility -->
+                    <div class="flex5">
+                        <div class="rect5">
+                            <div class="title"> Sunset and Sunrise </div>
+                        </div>
+                        <div class="rect5">
+                            <div class="title"> Visibility </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Location Finder -->
+        <div class="flex6">
+            <!-- Search Bar Area -->
+            <div class="rect6"></div>
+            <!-- Location Options -->
+            <div class="flex7">
+                <div class="rect7">
+                    <div class="title"> Las Vegas </div>
+                </div>
+                <div class="rect7">
+                    <div class="title"> San Diego </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="day2"> 
-        <div class="title"> Tuesday </div>
-    </div>
-    <div id="day3"> 
-        <div class="title"> Wednesday </div>
-    </div>
-    <div id="day4"> 
-        <div class="title"> Thursday </div>
-    </div>
-    <div id="day5"> 
-        <div class="title"> Friday </div>
-    </div>
-    <div id="day6"> 
-        <div class="title"> Saturday </div>
-    </div>
-    <div id="day7"> 
-        <div class="title"> Saturday </div>
-    </div>
-
-
-  </div>
-  <div class="item2">Menu</div>
-  
-  <div class="item3"> 
-    <div id="hourly">
-        <div class="title"> Hourly Forecast </div>
-    </div>
-
-  </div> 
-  <div class="item4">
-
-    <div id="UV">
-        <div class="title"> UV Index </div>
-    </div>
-    <div id="air"> 
-        <div class="title"> Air Quality </div>
-    </div>
-    <div id="rain"> 
-        <div class="title"> Rainfall </div>
-    </div>
-    <div id="humid"> 
-        <div class="title"> Humidity </div>
-    </div>
-    <div id="sun"> 
-        <div class="title"> Sunset and Sunrise </div>
-    </div>
-    <div id="visibility"> 
-        <div class="title"> Visibility </div>
-    </div>
-
-
-
-
-
-
-  </div>
-</main>
-
 </body>
 
 </html>
-
-<script src="clock.js"></script>
-
