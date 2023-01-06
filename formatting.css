@@ -85,6 +85,7 @@
     padding-right: 58px;
     padding-left: 68px;
     gap: 70px;
+    overflow: auto;
 }
 
 .flex7 {
