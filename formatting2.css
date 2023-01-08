@@ -1,0 +1,86 @@
+.flex0 {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 54px;
+}
+
+.flex1 {
+    display: flex;
+    flex-direction: column;
+    gap: 58px;
+    padding-left: 58px;
+}
+
+.flex2 {
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+}
+
+.flex3 {
+    display: flex;
+    gap: 34px;
+}
+
+.flex4 {
+    display: flex;
+    flex-direction: column;
+    gap: 58px;
+}
+
+.flex5 {
+    display: flex;
+    gap: 30px;
+}
+
+.flex6 {
+    display: flex;
+    flex-direction: column;
+    padding-right: 30px;
+    gap: 70px;
+}
+
+.flex7 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 58px;
+}
+
+/* THE ADDED STUFF FOR SEARCH BAR */
+.flex8 {
+    position: relative;
+    display: inline-flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 239px;
+    height: 42px;
+}
+
+.circ1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rect6 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 2px;
+}
+
+#enter-search-button {
+    position: absolute;
+    right: 0;
+    padding-right: 8px;
+}
+
+#search-box {
+    padding-left: 20px;
+    padding-right: 40px;
+    font-family: 'Lato';
+    color: #636571;
+}
+/* THE ADDED STUFF FOR SEARCH BAR */
