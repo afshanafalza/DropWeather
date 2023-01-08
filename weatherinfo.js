@@ -1,14 +1,13 @@
 console.log("weather info");
 
 // Variables
-let loc = "new york ";
-let validLoc = makeValidString(loc);
+let loc;
+
+// let validLoc = makeValidString(loc);
 let locTiles = document.querySelector(".flex7");
 let locName;
 let stateName;
 
-console.log(validLoc);
-console.log(locTiles);
 
 
 // AccuWeather API
@@ -30,7 +29,6 @@ const getLocationData = async () => {
 }
 
 // Calling API function for location
-getLocationData();
 
 // Turns location into something readable for URLs
 function makeValidString(str) {

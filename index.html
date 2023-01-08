@@ -225,7 +225,7 @@
                     <label class="placeholder-text" for="fname" id="placeholder-text">
                        <div class="text">Search Location</div>
                     </label>
-                    <button type="submit">Search</button>
+                    <button type="submit" id="sBut">Search</button>
                 </div>
             </div>
             <!-- Location Options -->
@@ -243,11 +243,19 @@
 
 <script>
     const input = document.getElementById('fname');
-
-input.addEventListener('input', () => {
-  input.setAttribute('value', input.value);
-});
+    const sButton = document.getElementById('sBut');
+    input.addEventListener('input', () => {
+        input.setAttribute('value', input.value);
+    });
+    sButton.addEventListener('click', () => { // clicking search
+        loc = makeValidString(input.value);
+        console.log(loc);
+        input.value = ``;
+        getLocationData();
+    });
+    
 </script>
+
 <script src="script.js" type="text/javascript" defer></script>
 <script src="weatherinfo.js" type="text/javascript" defer></script>
 </html>

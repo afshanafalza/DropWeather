@@ -237,3 +237,8 @@ table td{
 .condition-data{
  margin: 10px;
 }
+
+
+#fname{
+  border: none;
+}
