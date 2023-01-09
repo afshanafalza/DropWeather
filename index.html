@@ -7,8 +7,16 @@
   <title> Drop Weather </title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link href="formatting.css" rel="stylesheet" type="text/css" />
-
+  <!-- THE ADDED STUFF FOR SEARCH BAR -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
+  <!-- THE ADDED STUFF FOR SEARCH BAR -->
 </head>
+
+<script src="scriptSearch.js" type="text/javascript" defer></script>
 
 <body>
 
@@ -219,15 +227,17 @@
         <!-- Location Finder -->
         <div class="flex6">
             <!-- Search Bar Area -->
-            <div class="rect6">
-                <div class="input-contain">
-                    <input type="text" id="fname" name="fname" autocomplete="off" value="" aria-labelledby="placeholder-fname">
-                    <label class="placeholder-text" for="fname" id="placeholder-text">
-                       <div class="text">Search Location</div>
-                    </label>
-                    <button type="submit" id="sBut">Search</button>
+            <!-- THE ADDED STUFF FOR SEARCH BAR -->
+            <div class="flex8" id="search-bar-area">
+                <div class="text1" id="selected-cities" >
+                    Selected Cities
                 </div>
+                <input type="text" class="rect6" id="search-box"><button class="material-icons md-26 md-dark" id="enter-search-button">search</button></input>
+                <button class="circ1" id="open-search-button">
+                    <span class="material-icons md-26 md-dark">search</span>
+                </button>
             </div>
+            <!-- ^^^^^ THE ADDED STUFF FOR SEARCH BAR ^^^^^ -->
             <!-- Location Options -->
             <div class="flex7">
                 <!-- <div class="rect7">
@@ -256,6 +266,6 @@
     
 </script>
 
-<script src="script.js" type="text/javascript" defer></script>
+
 <script src="weatherinfo.js" type="text/javascript" defer></script>
 </html>

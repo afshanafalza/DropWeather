@@ -46,12 +46,12 @@ body, html {
 }
 
 .rect2 {
-    width: 145px;
-    height: 145px;
+  width: 95px;
+  height: 145px;
 
-    background: rgba(0, 0, 0, 0.25);
-    box-shadow: 0px 4px 10px 1px #7abfdc4d;
-    border-radius: 12px;
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 10px 1px rgba(122, 191, 220, 0.3);
+  border-radius: 12px;
 }
 
 .rect2 > .icon{
@@ -90,6 +90,15 @@ body, html {
     border-radius: 16px;
 }
 
+.rect6 {
+  width: 239px;
+  height: 42px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 10px rgb(255 255 255 / 49%);
+  border-radius: 18px;
+  transition: all 2s ease; 
+}
+
 .rect6 > input {
     width: 239px;
     height: 42px;
@@ -105,13 +114,6 @@ body, html {
   background: #FFFFFF;
   border-radius: 22px;
   box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.49);
-}
-
-input{
-  height: 42px;
-  border-color: transparent;
-  text-align: center;
-  border-radius: 22px;
 }
 
 .placeholder-text{
@@ -242,3 +244,47 @@ table td{
 #fname{
   border: none;
 }
+
+
+/* THE ADDED STUFF FOR SEARCH BAR */
+.circ1 {
+  width: 42px;
+  height: 42px;
+
+  background: #FFFFFF;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.49);
+  border-radius: 22px;
+}
+
+.text1 {
+  width: 106px;
+  height: 15px;
+
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: -0.015em;
+
+  color: #FFFFFF;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+input {
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+
+.material-icons.md-26 { font-size: 26px; }
+.material-icons.md-dark { color: #818494; }
+/* THE ADDED STUFF FOR SEARCH BAR */

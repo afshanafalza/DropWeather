@@ -109,3 +109,46 @@
     clear:both;
     padding-top: 10px;
 }
+
+
+/* THE ADDED STUFF FOR SEARCH BAR */
+.flex8 {
+    position: relative;
+    display: inline-flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 239px;
+    height: 42px;
+}
+
+.circ1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rect6 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 2px;
+}
+
+#enter-search-button {
+    position: absolute;
+    right: 0;
+    padding-right: 8px;
+}
+
+#search-box {
+    padding-left: 20px;
+    padding-right: 40px;
+    font-family: 'Lato';
+    color: #636571;
+    transition: all 0.5s ease; 
+    visibility: hidden;
+    position: absolute;
+    right: 0;
+}
+/* THE ADDED STUFF FOR SEARCH BAR!! */
