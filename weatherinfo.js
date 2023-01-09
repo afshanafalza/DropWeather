@@ -13,9 +13,11 @@ let stateName;
 // AccuWeather API
 // Grabbing location data based off input
 const getLocationData = async () => {
-    const response = await fetch(`http://dataservice.accuweather.com/locations/v1/cities/US/search?apikey=${apiKey}&q=${loc}`);
+    const response = await fetch(`http://dataservice.accuweather.com/locations/v1/cities/US/search?apikey=${apiKey}&q=${locValue}`);
     const data = await response.json();
     console.log(data);
+
+    locTiles.innerHTML = ``;
 
     for(let i=0; i<data.length; i++) {
         // console.log(data[i]); // log all elements of data

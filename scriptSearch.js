@@ -7,6 +7,7 @@ let openSearchButton = document.getElementById("open-search-button");
 let searchBarArea = document.getElementById("search-bar-area");
 let enterSearchButton = document.getElementById("enter-search-button");
 let inputField = document.getElementById("search-box");
+let locValue;
 enterSearchButton.style.visibility = 'hidden';
 inputField.style.width = 0;
 console.log(searchBarArea);
@@ -24,15 +25,19 @@ openSearchButton.addEventListener('click', () => {
 
     // Submitting whatever you have in input field
     enterSearchButton.addEventListener('click', () => {
-        let locValue = inputField.value;
+        locValue = makeValidString(inputField.value);
         console.log(locValue);
+        inputField.value = ``;
+        getLocationData();
     });
 
     // Entering input field
     inputField.addEventListener('keyup', (e) => {
         if(e.keyCode == 13 && inputField.value!=``) {
-            let locValue = inputField.value;
+            locValue = makeValidString(inputField.value);
             console.log(locValue);
+            inputField.value = ``;
+            getLocationData();
         }
     });
 });
