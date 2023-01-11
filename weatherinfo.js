@@ -7,6 +7,12 @@ let loc;
 let locTiles = document.querySelector(".flex7");
 let locName;
 let stateName;
+let idName;
+let locIDs = [];
+let locNames = [];
+let stateNames = [];
+
+let locTileInfos 
 
 
 
@@ -18,19 +24,30 @@ const getLocationData = async () => {
     console.log(data);
 
     locTiles.innerHTML = ``;
+    locIDs = [];
+    locNames = [];
+    stateNames = [];
 
     for(let i=0; i<data.length; i++) {
-        // console.log(data[i]); // log all elements of data
+        // Storing area name
         locName = data[i]["LocalizedName"];
         stateName = data[i]["AdministrativeArea"]["LocalizedName"];
-        console.log(locName+", "+stateName);
-        locTiles.innerHTML = locTiles.innerHTML + `<div class="rect7">
+        idName = makeValidString(locName)+"-"+makeValidString(stateName);
+
+        // Displaying location tiles
+        locTiles.innerHTML = locTiles.innerHTML + `<div class="rect7" id="${idName}">
         <div class="title"> ${locName}, ${stateName} </div>
         </div>`
+        
+        // Pushing each ID into an array
+        locIDs.push(idName);
+        locNames.push(locName);
+        stateNames.push(stateName);
     }
-}
 
-// Calling API function for location
+    console.log(locIDs);
+    clickLocationTiles(locIDs);
+}
 
 // Turns location into something readable for URLs
 function makeValidString(str) {
@@ -43,4 +60,15 @@ function makeValidString(str) {
         }
     }
     return str;
+}
+
+function clickLocationTiles(idNames) {
+    for(let i=0; i<idNames.length; i++) {
+        let locationTile = document.getElementById(idNames[i]);
+        locationTile.addEventListener('click', () => {
+            locTiles.innerHTML = `<div class="rect7" id="${idNames[i]}">
+            <div class="title"> ${locNames[i]}, ${stateNames[i]} </div>
+            </div>`
+        })
+    }
 }
