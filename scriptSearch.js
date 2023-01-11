@@ -25,17 +25,17 @@ openSearchButton.addEventListener('click', () => {
 
     // Submitting whatever you have in input field
     enterSearchButton.addEventListener('click', () => {
-        locValue = makeValidString(inputField.value);
-        console.log(locValue);
-        inputField.value = ``;
-        getLocationData();
+        if(inputField.value!=``) {
+            locValue = makeValidString(inputField.value);
+            inputField.value = ``;
+            getLocationData();    
+        }
     });
 
     // Entering input field
     inputField.addEventListener('keyup', (e) => {
         if(e.keyCode == 13 && inputField.value!=``) {
             locValue = makeValidString(inputField.value);
-            console.log(locValue);
             inputField.value = ``;
             getLocationData();
         }

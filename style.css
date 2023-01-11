@@ -284,6 +284,26 @@ input:focus {
   outline: none;
 }
 
+.rect7 {
+  cursor: pointer;
+  transition: color .25s ease, transform .18s;
+}
+
+.rect7:hover {
+  transform: scale(1.03);
+}
+
+.title {
+  cursor: pointer;
+  user-select: none;
+}
+
+#enter-search-button {
+  user-select: none;
+}
+
+
+
 
 .material-icons.md-26 { font-size: 26px; }
 .material-icons.md-dark { color: #818494; }
