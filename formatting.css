@@ -26,7 +26,7 @@
 .background-images {
     position: fixed;
     /* The image used */
-    background-image: url("assets/backgrounds/clearNight.gif");
+    background-image: url("assets/backgrounds/foggy.gif");
     /* Add the blur effect */
     filter: blur(8px);
     -webkit-filter: blur(8px);
@@ -118,6 +118,7 @@
 .rect1 > .info{
     float: left;
     width: 30%;
+    position: relative;
 }
 
 
