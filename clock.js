@@ -5,7 +5,6 @@ setInterval(function() {
     hours = currentTime.getHours(),
     minutes = currentTime.getMinutes(),
     ampm = hours > 11 ? 'PM' : 'AM';
-    console.log("origin hours is" +hours);
 
     let diff = currentTime.getTimezoneOffset()/60; // Get hours difference from UTC
     hours += diff; // Make hours equal UTC time
