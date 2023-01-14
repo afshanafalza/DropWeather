@@ -19,6 +19,7 @@ const d = new Date();
 let day = d.getDay();
 let gmt = 0;
 
+// Mapping the days
 let dayMap = new Map([
     [0, "Sunday"],
     [1, "Monday"],
@@ -28,6 +29,8 @@ let dayMap = new Map([
     [5, "Friday"],
     [6, "Saturday"]
 ]);
+
+
 
 
 // AccuWeather API
@@ -84,7 +87,38 @@ function makeValidString(str) {
     return str;
 }
 
-function clickLocationTiles(idNames) {
+
+const getForecastData = async () => {
+    const response = await fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${selectedLocKey}?apikey=${apiKey}`);
+    const data = await response.json();
+    console.log(data);
+
+    for(let i=0; i<5; i++) {
+        //  Grabbing the day of the week
+        let dayTile = document.getElementById(`day${i}`);
+        let dayOTW = dayMap.get((day+i)%7);
+
+        // Grabbing icon
+        let iconNumber = data["DailyForecasts"][i]["Day"]["Icon"];
+        console.log("icon number: "+iconNumber);
+        
+        // Grabbing max temperature
+        let temperature = data["DailyForecasts"][i]["Temperature"]["Maximum"]["Value"];
+        console.log("temperature"+temperature);
+
+        if(i==0) {
+            dayTile.innerHTML = `<div class="title"> ${dayOTW} </div>
+            <div class="icon"> <img src="assets/accuiconsnew/${iconNumber}-s.png"/> </div>`;    
+        }
+        else {
+            //url("assets/backgrounds/morning-sunny.gif")
+            dayTile.innerHTML = `<div class="title"> ${dayOTW} </div>
+            <div class="icon"> <img src="assets/accuiconsnew/${iconNumber}-s.png"/> </div><div class="temp"> ${temperature}°F </div>`;    
+        }
+    }
+}
+
+const clickLocationTiles = async (idNames) => {
     for(let i=0; i<idNames.length; i++) {
         let locationTile = document.getElementById(idNames[i]);
         locationTile.addEventListener('click', () => {
@@ -93,7 +127,7 @@ function clickLocationTiles(idNames) {
             </div>`
             selectedLocKey = locKeys[i];
             console.log("this is selected: "+selectedLocKey);
-            locationDisplayArea.innerHTML = ` <img src="assets/location.png"> ${locNames[i]}, ${stateNames[i]}`;
+            locationDisplayArea.innerHTML = `<img src="assets/location.png">${locNames[i]}, ${stateNames[i]}`;
             gmt = gmtOffSets[i];
             console.log(gmt);
             // Call function where we update weather conditions  
@@ -102,14 +136,9 @@ function clickLocationTiles(idNames) {
     }
 }
 
-const getForecastData = async () => {
-    const response = await fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${selectedLocKey}?apikey=${apiKey}`);
-    const data = await response.json();
-    console.log(data);
-}
-
-function updateDay() {
+function updateDays() {
     // All day updates here
+    
 }
 
-updateDay();
+updateDays();
