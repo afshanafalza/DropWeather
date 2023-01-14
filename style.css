@@ -75,6 +75,17 @@ body, html {
   font-size: 10px;
 }
 
+
+.info .high {
+  position: absolute;
+  bottom: -33px;
+}
+
+.info .low {
+  position: absolute;
+  bottom: -45px;
+}
+
 .rect2 {
   width: 130px;
   height: 145px;
