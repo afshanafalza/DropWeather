@@ -110,6 +110,16 @@
     padding-top: 10px;
 }
 
+.rect1 > .icon{
+    float: left;
+    width: 60%;
+}
+
+.rect1 > .info{
+    float: left;
+    width: 30%;
+}
+
 
 /* THE ADDED STUFF FOR SEARCH BAR */
 .flex8 {
