@@ -26,7 +26,7 @@
 .background-images {
     position: fixed;
     /* The image used */
-    background-image: url("assets/backgrounds/clearNight.gif");
+    /* background-image: url("assets/backgrounds/cloudy.gif"); */
     /* Add the blur effect */
     filter: blur(8px);
     -webkit-filter: blur(8px);

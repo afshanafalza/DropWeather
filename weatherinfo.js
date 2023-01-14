@@ -19,6 +19,10 @@ const d = new Date();
 let day = d.getDay();
 let gmt = 0;
 
+// Background Variables
+let bg = document.querySelector(".background-images");
+// bg.style.backgroundImage = `url("assets/backgrounds/cloudy.gif")`;
+
 // Mapping the days
 let dayMap = new Map([
     [0, "Sunday"],
@@ -30,13 +34,10 @@ let dayMap = new Map([
     [6, "Saturday"]
 ]);
 
-
-
-
 // AccuWeather API
 // Grabbing location data based off input
 const getLocationData = async () => {
-    const response = await fetch(`http://dataservice.accuweather.com/locations/v1/cities/US/search?apikey=${apiKey}&q=${locValue}`);
+    const response = await fetch(`http://dataservice.accuweather.com/locations/v1/US/search?apikey=${apiKey}&q=${locValue}`);
     const data = await response.json();
     console.log(data);
 
@@ -110,6 +111,8 @@ const getForecastData = async () => {
             let condition = data["DailyForecasts"][i]["Day"]["IconPhrase"];
             let highTemp = data["DailyForecasts"][i]["Temperature"]["Maximum"]["Value"];
             let lowTemp = data["DailyForecasts"][i]["Temperature"]["Minimum"]["Value"];
+
+            // Updating the today tile with data
             dayTile.innerHTML = `<div class="title"> ${dayOTW} </div>
             <div class="info">
                 <div class="temp"> ${temperature}°F </div>
@@ -117,7 +120,28 @@ const getForecastData = async () => {
                 <div class="high"> ↑ ${highTemp}°F </div>
                 <div class="low"> ↓ ${lowTemp}°F </div>
             </div>
-            <div class="icon"> <img src="assets/accuiconsnew/${iconNumber}-s.png"/> </div>`;    
+            <div class="icon"> <img src="assets/accuiconsnew/${iconNumber}-s.png"/> </div>`;   
+            console.log("ICON NUMBER IS " +iconNumber);
+            
+            // Changing the background GIF
+            if(iconNumber>=1 && iconNumber<=5) {
+                bg.style.backgroundImage = `url("assets/backgrounds/sunny.gif")`;
+            }
+            else if (iconNumber>=6 && iconNumber<=8) {
+                bg.style.backgroundImage = `url("assets/backgrounds/cloudy.gif")`;
+            }
+            else if(iconNumber==11) {
+                bg.style.backgroundImage = `url("assets/backgrounds/foggy.gif")`;
+            }
+            else if(iconNumber>=12 && iconNumber<=18) {
+                bg.style.backgroundImage = `url("assets/backgrounds/rainy.gif")`;
+            }
+            else if(iconNumber>=19 && iconNumber<=29) {
+                bg.style.backgroundImage = `url("assets/backgrounds/snowing.gif")`;
+            }
+            else if(iconNumber>=32 && iconNumber<=44) {
+                bg.style.backgroundImage = `url("assets/backgrounds/night.gif")`;
+            }
         }
         else {
             //url("assets/backgrounds/morning-sunny.gif")
