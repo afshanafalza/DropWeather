@@ -21,7 +21,14 @@ body, html {
     font-size: 36px;
     line-height: 43px;
     text-align: center;
-    letter-spacing: 0.07em;
+    letter-spacing: 0.1em;
+    
+}
+
+.ampm {
+  font-weight: 200;
+  display:inline;
+  padding-left: 10px;
 }
 
 .location{

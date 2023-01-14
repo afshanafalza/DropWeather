@@ -17,5 +17,5 @@ setInterval(function() {
     minutes = minutes < 10 ? '0' + minutes : minutes; // Add 0 to minutes if between 0 and 9
 
 
-    clock.innerHTML = hours + ":" + minutes + " " + ampm;
+    clock.innerHTML = hours + ":" + minutes + "" + `<div class="ampm">`+ ampm + `</div>`;
 }, 1000);
