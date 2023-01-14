@@ -11,11 +11,13 @@ let locIDs = [];
 let locNames = [];
 let stateNames = [];
 let locKeys = []; 
+let gmtOffSets = [];
 let locationDisplayArea = document.querySelector(".location");
 
 // Date Variables
 const d = new Date();
 let day = d.getDay();
+let gmt = 0;
 
 let dayMap = new Map([
     [0, "Sunday"],
@@ -40,6 +42,7 @@ const getLocationData = async () => {
     locNames = [];
     stateNames = [];
     locKeys = [];
+    gmtOffSets = [];
 
     for(let i=0; i<data.length; i++) {
         // Storing area name
@@ -47,6 +50,7 @@ const getLocationData = async () => {
         stateName = data[i]["AdministrativeArea"]["LocalizedName"];
         idName = makeValidString(locName)+"-"+makeValidString(stateName);
         locKey = data[i]["Key"];
+        gmtOffSet = data[i]["TimeZone"]["GmtOffset"];
 
         console.log(locKey);
 
@@ -60,6 +64,7 @@ const getLocationData = async () => {
         locNames.push(locName);
         stateNames.push(stateName);
         locKeys.push(locKey);
+        gmtOffSets.push(gmtOffSet);
     }
 
     console.log(locIDs);
@@ -89,6 +94,8 @@ function clickLocationTiles(idNames) {
             selectedLocKey = locKeys[i];
             console.log("this is selected: "+selectedLocKey);
             locationDisplayArea.innerHTML = `${locNames[i]}, ${stateNames[i]}`;
+            gmt = gmtOffSets[i];
+            console.log(gmt);
             // Call function where we update weather conditions  
             getForecastData();  
         })
