@@ -52,8 +52,6 @@ body, html {
 .rect1 {
     width: 145px;
     height: 145px;
-    display: table;
-    clear: both;
     background: rgba(177, 221, 240, 0.7);
     box-shadow: 0px 4px 10px 1px rgba(122, 191, 220, 0.3);
     border-radius: 12px;
@@ -70,7 +68,7 @@ body, html {
 
 .info > .temp{
   padding-top: 10px;
-  font-size: 30px;
+  font-size: 26px;
 }
 
 .info > .high, .info > .low {
@@ -91,7 +89,8 @@ body, html {
 }
 
 .rect2 > .temp{
-    padding-top: 15px;
+    padding-top: 8px;
+    font-size: 26px;
 }
 
 
