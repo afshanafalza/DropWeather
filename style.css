@@ -32,6 +32,16 @@ body, html {
     width: 400px;
 }
 
+
+.location > img {
+  filter: invert();
+  height: 16px;
+  width: 16px;
+  padding-right: 6px;
+  vertical-align: text-bottom;
+  padding-bottom: 3px;
+}
+
 .rect1 {
     width: 145px;
     height: 145px;
@@ -309,3 +319,4 @@ input:focus {
 .material-icons.md-26 { font-size: 26px; }
 .material-icons.md-dark { color: #818494; }
 /* THE ADDED STUFF FOR SEARCH BAR */
+
