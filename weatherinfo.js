@@ -107,12 +107,15 @@ const getForecastData = async () => {
         console.log("temperature"+temperature);
 
         if(i==0) {
+            let condition = data["DailyForecasts"][i]["Day"]["IconPhrase"];
+            let highTemp = data["DailyForecasts"][i]["Temperature"]["Maximum"]["Value"];
+            let lowTemp = data["DailyForecasts"][i]["Temperature"]["Minimum"]["Value"];
             dayTile.innerHTML = `<div class="title"> ${dayOTW} </div>
             <div class="info">
                 <div class="temp"> ${temperature}°F </div>
-                <div class="condition"> Cloudy <3 </div>
-                <div class="high"> ↑ 57°F </div>
-                <div class="low"> ↓ 49°F </div>
+                <div class="condition"> ${condition} </div>
+                <div class="high"> ↑ ${highTemp}°F </div>
+                <div class="low"> ↓ ${lowTemp}°F </div>
             </div>
             <div class="icon"> <img src="assets/accuiconsnew/${iconNumber}-s.png"/> </div>`;    
         }
