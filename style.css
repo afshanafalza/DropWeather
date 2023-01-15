@@ -57,9 +57,15 @@ body, html {
     border-radius: 12px;
 }
 
+.rect1 > .icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
 .rect1 > .icon img{
     padding-top: 20px;
-    width: 55px;
+    width: 65px;
 }
 
 .info{
