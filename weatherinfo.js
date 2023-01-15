@@ -60,6 +60,7 @@ const getDefaultLocationData = async () => {
     defaultLoc = data[0]["Key"];
     defaultLocName = data[0]["LocalizedName"];
     defaultStateName = data[0]["AdministrativeArea"]["LocalizedName"];
+    gmt = data[0]["TimeZone"]["GmtOffset"];
 
     locationDisplayArea.innerHTML = `<img src="assets/location.png">${defaultLocName}, ${defaultStateName}`;
     getForecastData(defaultLoc);
