@@ -57,13 +57,15 @@ body, html {
     border-radius: 12px;
 }
 
-.rect1 > .icon{
+.rect1 > .icon img{
     padding-top: 20px;
+    width: 55px;
 }
 
 .info{
   text-align: left;
   padding-left: 10px;
+  display: relative;
 }
 
 .info > .temp{
@@ -71,20 +73,34 @@ body, html {
   font-size: 26px;
 }
 
-.info > .high, .info > .low {
+#highLow > .high, #highLow > .low {
   font-size: 10px;
+  display: inline;
 }
 
-
-.info .high {
-  position: absolute;
-  bottom: -33px;
+#highLow {
+  text-align:center;
+  display: relative;
 }
 
-.info .low {
-  position: absolute;
-  bottom: -45px;
+.info > table {
+  table-layout: fixed;
+  line-height: 10px;
+  height: 115px;
 }
+
+.condition {
+  max-width: 100px;
+  line-height: 0.9em;
+  height: 1.8em;       /* height is 2x line-height, so two lines will display */
+  overflow: hidden;
+}
+
+td > .temp{
+  padding-top: 10px;
+  font-size: 26px;
+}
+
 
 .rect2 {
   width: 130px;
@@ -260,7 +276,7 @@ button[type="submit"]:hover {
   overflow: auto;
 }
 
-table {
+.scroll-table > table {
     margin: 0 auto;
     width: 95%;
     border: 0px solid;
@@ -268,7 +284,7 @@ table {
 }
 
 
-table td{
+.scroll-table > table td{
     padding: 1em;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }

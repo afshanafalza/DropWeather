@@ -148,10 +148,20 @@ const getForecastData = async (locKeyVal) => {
             // Updating the today tile with data
             dayTile.innerHTML = `<div class="title"> ${dayOTW} </div>
             <div class="info">
-                <div class="temp"> ${temperature}°F </div>
-                <div class="condition"> ${condition} </div>
-                <div class="high"> ↑ ${highTemp}°F </div>
-                <div class="low"> ↓ ${lowTemp}°F </div>
+                <table>
+                    <tr>
+                        <td><div class="temp"> ${temperature}°F </div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="condition"> ${condition} </div></td>
+                    </tr>
+                    <tr>
+                        <td id="highLow">
+                            <div class="high"> ↑ ${highTemp}°F </div>
+                            <div class="low"> ↓ ${lowTemp}°F </div>
+                        </td>
+                    </tr>
+                </table>
             </div>
             <div class="icon"> <img src="assets/accuiconsnew/${iconNumber}-s.png"/> </div>`;   
             console.log("ICON NUMBER IS " +iconNumber);

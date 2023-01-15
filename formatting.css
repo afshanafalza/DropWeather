@@ -112,12 +112,12 @@
 
 .rect1 > .icon{
     float: left;
-    width: 63%;
+    width: 40%;
 }
 
 .rect1 > .info{
     float: left;
-    width: 30%;
+    width: 50%;
     position: relative;
 }
 
