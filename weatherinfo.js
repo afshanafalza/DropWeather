@@ -21,7 +21,11 @@ let gmt = 0;
 
 // Background Variables
 let bg = document.querySelector(".background-images");
-// bg.style.backgroundImage = `url("assets/backgrounds/cloudy.gif")`;
+
+// Default Variables
+let defaultLoc;
+let defaultLocName;
+let defaultStateName;
 
 // Mapping the days
 let dayMap = new Map([
@@ -33,6 +37,34 @@ let dayMap = new Map([
     [5, "Friday"],
     [6, "Saturday"]
 ]);
+
+
+// Auto Location stuff
+var userZip = 0
+fetch(
+  "http://ip-api.com/json/?fields=city,zip"
+)
+.then(response => response.json())
+.then((data) => {
+    console.log("the zip from API is " + data.zip)
+    userZip = data.zip
+    getDefaultLocationData();
+})
+
+const getDefaultLocationData = async () => {
+    const response = await fetch(`http://dataservice.accuweather.com/locations/v1/postalcodes/US/search?apikey=${apiKey}&q=${userZip}`);
+    const data = await response.json();
+    console.log(data);
+
+    // Vars
+    defaultLoc = data[0]["Key"];
+    defaultLocName = data[0]["LocalizedName"];
+    defaultStateName = data[0]["AdministrativeArea"]["LocalizedName"];
+
+    locationDisplayArea.innerHTML = `<img src="assets/location.png">${defaultLocName}, ${defaultStateName}`;
+    getForecastData(defaultLoc);
+}
+
 
 // AccuWeather API
 // Grabbing location data based off input
@@ -89,8 +121,8 @@ function makeValidString(str) {
 }
 
 
-const getForecastData = async () => {
-    const response = await fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${selectedLocKey}?apikey=${apiKey}`);
+const getForecastData = async (locKeyVal) => {
+    const response = await fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locKeyVal}?apikey=${apiKey}`);
     const data = await response.json();
     console.log(data);
 
@@ -164,14 +196,7 @@ const clickLocationTiles = async (idNames) => {
             gmt = gmtOffSets[i];
             console.log(gmt);
             // Call function where we update weather conditions  
-            getForecastData();  
+            getForecastData(selectedLocKey);  
         })
     }
 }
-
-function updateDays() {
-    // All day updates here
-    
-}
-
-updateDays();
