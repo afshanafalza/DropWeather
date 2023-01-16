@@ -188,7 +188,7 @@ const getForecastData = async (locKeyVal) => {
         }
         else {
             //url("assets/backgrounds/morning-sunny.gif")
-            if(iconNumber>=1 && iconNumber<=14) {
+            if(iconNumber>=1 && iconNumber<=23) {
                 dayTile.innerHTML = `<div class="title"> ${dayOTW} </div>
                 <div class="icon"> <img src="assets/jennicons/${iconNumber}-s.png"/> </div><div class="temp"> ${temperature}°F </div>`;        
             }

@@ -61,10 +61,12 @@ body, html {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  padding-top: 10px;
 }
 
 .rect1 > .icon img{
-    width: 65px;
+  width: 50px;
+  padding-right: 5px; 
 }
 
 .info{
@@ -117,7 +119,11 @@ td > .temp{
 }
 
 .rect2 > .icon{
-    padding-top: 20px;
+    padding-top: 10px;
+}
+
+.rect2 > .icon img{
+  width: 50px;
 }
 
 .rect2 > .temp{
