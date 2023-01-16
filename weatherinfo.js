@@ -70,6 +70,7 @@ const getDefaultLocationData = async () => {
     locationDisplayArea.innerHTML = `<img src="assets/location.png">${defaultLocName}, ${defaultStateName}`;
     getForecastData(defaultLoc);
     createTable(defaultLoc);
+    displayConditions(defaultLoc);
 }
 
 
@@ -266,25 +267,7 @@ const createTable = async (locKeyVal) => {
 
         // Hour Variable
         let dateTime = data[i]["DateTime"];
-        let currHour = parseInt(dateTime.substring(dateTime.indexOf(`T`)+1, dateTime.indexOf(`:`)));
-        
-        // Converting hour to 12 scale
-        if(currHour/12>=1) {
-            if(currHour%12==0) {
-                currHour = "12PM";
-            }
-            else {
-                currHour = (currHour%12)+"PM";
-            }
-        }
-        else {
-            if(currHour%12==0) {
-                currHour = "12AM";
-            }
-            else {
-                currHour = (currHour%12)+"AM";
-            }
-        }
+        let currHour = convertTime(dateTime);
 
         // Inserting values into table
         if(i!=data.length-1) {
@@ -320,5 +303,40 @@ const createTable = async (locKeyVal) => {
             }
         }
     }
+}
+
+// Converting the time format to "XAM/PM"
+function convertTime(dateTime) {
+    let currHour = parseInt(dateTime.substring(dateTime.indexOf(`T`)+1, dateTime.indexOf(`:`)));
+        
+    // Converting hour to 12 scale
+    if(currHour/12>=1) {
+        if(currHour%12==0) {
+            currHour = "12PM";
+        }
+        else {
+            currHour = (currHour%12)+"PM";
+        }
+    }
+    else {
+        if(currHour%12==0) {
+            currHour = "12AM";
+        }
+        else {
+            currHour = (currHour%12)+"AM";
+        }
+    }
+
+    return currHour;
+}
+
+// Other Weather Conditions
+const displayConditions = async (locKeyVal) => {
+    const response = await fetch(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${locKeyVal}.json?apikey=${apiKey}&details=true`);
+    const data = await response.json();
+    console.log(data);
+
+    // DISPLAYING THE UV INDEX
+    
 }
 
