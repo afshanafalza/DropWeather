@@ -1,4 +1,5 @@
 var clock = document.getElementById('clock');
+let hours;
 
 setInterval(function() {
     var currentTime = new Date(),

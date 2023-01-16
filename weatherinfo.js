@@ -27,6 +27,10 @@ let defaultLoc;
 let defaultLocName;
 let defaultStateName;
 
+// Hourly Table Variables
+let hourlyTable = document.getElementById("hourly-table");
+console.log(hourlyTable);
+
 // Mapping the days
 let dayMap = new Map([
     [0, "Sunday"],
@@ -51,6 +55,7 @@ fetch(
     getDefaultLocationData();
 })
 
+// Displaying the default location forecast data
 const getDefaultLocationData = async () => {
     const response = await fetch(`http://dataservice.accuweather.com/locations/v1/postalcodes/US/search?apikey=${apiKey}&q=${userZip}`);
     const data = await response.json();
@@ -64,6 +69,7 @@ const getDefaultLocationData = async () => {
 
     locationDisplayArea.innerHTML = `<img src="assets/location.png">${defaultLocName}, ${defaultStateName}`;
     getForecastData(defaultLoc);
+    createTable(defaultLoc);
 }
 
 
@@ -121,7 +127,7 @@ function makeValidString(str) {
     return str;
 }
 
-
+// Displaying forecast data
 const getForecastData = async (locKeyVal) => {
     const response = await fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locKeyVal}?apikey=${apiKey}`);
     const data = await response.json();
@@ -146,25 +152,47 @@ const getForecastData = async (locKeyVal) => {
             let lowTemp = data["DailyForecasts"][i]["Temperature"]["Minimum"]["Value"];
 
             // Updating the today tile with data
-            dayTile.innerHTML = `<div class="title"> ${dayOTW} </div>
-            <div class="info">
-                <table>
-                    <tr>
-                        <td><div class="temp"> ${temperature}°F </div></td>
-                    </tr>
-                    <tr>
-                        <td><div class="condition"> ${condition} </div></td>
-                    </tr>
-                    <tr>
-                        <td id="highLow">
-                            <div class="high"> ↑ ${highTemp}°F </div>
-                            <div class="low"> ↓ ${lowTemp}°F </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div class="icon"> <img src="assets/accuiconsnew/${iconNumber}-s.png"/> </div>`;   
-            console.log("ICON NUMBER IS " +iconNumber);
+            if(iconNumber>=1 && iconNumber<=23) {
+                dayTile.innerHTML = `<div class="title"> ${dayOTW} </div>
+                <div class="info">
+                    <table>
+                        <tr>
+                            <td><div class="temp"> ${temperature}°F </div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="condition"> ${condition} </div></td>
+                        </tr>
+                        <tr>
+                            <td id="highLow">
+                                <div class="high"> ↑ ${highTemp}°F </div>
+                                <div class="low"> ↓ ${lowTemp}°F </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="icon"> <img src="assets/jennicons/${iconNumber}-s.png"/> </div>`;   
+            }
+            else {
+                dayTile.innerHTML = `<div class="title"> ${dayOTW} </div>
+                <div class="info">
+                    <table>
+                        <tr>
+                            <td><div class="temp"> ${temperature}°F </div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="condition"> ${condition} </div></td>
+                        </tr>
+                        <tr>
+                            <td id="highLow">
+                                <div class="high"> ↑ ${highTemp}°F </div>
+                                <div class="low"> ↓ ${lowTemp}°F </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="icon"> <img src="assets/accuiconsnew/${iconNumber}-s.png"/> </div>`;   
+            }
+            
             
             // Changing the background GIF
             if(iconNumber>=1 && iconNumber<=5) {
@@ -200,6 +228,7 @@ const getForecastData = async (locKeyVal) => {
     }
 }
 
+// Selecting a location
 const clickLocationTiles = async (idNames) => {
     for(let i=0; i<idNames.length; i++) {
         let locationTile = document.getElementById(idNames[i]);
@@ -214,6 +243,82 @@ const clickLocationTiles = async (idNames) => {
             console.log(gmt);
             // Call function where we update weather conditions  
             getForecastData(selectedLocKey);  
+            createTable(selectedLocKey);
         })
     }
 }
+
+
+const createTable = async (locKeyVal) => {
+    // Grabbing hourly forecast data
+    const response = await fetch(`http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${locKeyVal}?apikey=${apiKey}`);
+    const data = await response.json();
+    console.log(data);
+
+    // Resetting hourly table HTML
+    hourlyTable.innerHTML = "";
+    for(let i=0; i<data.length; i++) {
+        // Icon Variable
+        let iconNumber = data[i]["WeatherIcon"];
+
+        // Condition Variable
+        let hourlyTemp = data[i]["Temperature"]["Value"];
+
+        // Hour Variable
+        let dateTime = data[i]["DateTime"];
+        let currHour = parseInt(dateTime.substring(dateTime.indexOf(`T`)+1, dateTime.indexOf(`:`)));
+        
+        // Converting hour to 12 scale
+        if(currHour/12>=1) {
+            if(currHour%12==0) {
+                currHour = "12PM";
+            }
+            else {
+                currHour = (currHour%12)+"PM";
+            }
+        }
+        else {
+            if(currHour%12==0) {
+                currHour = "12AM";
+            }
+            else {
+                currHour = (currHour%12)+"AM";
+            }
+        }
+
+        // Inserting values into table
+        if(i!=data.length-1) {
+            if(iconNumber>=1 && iconNumber<=23) { // INSERT JEN'S ICONS HERE
+                hourlyTable.innerHTML = hourlyTable.innerHTML+`<tr>
+                <td>${currHour}</td>
+                <td><img src="assets/accuiconsnew/${iconNumber}-s.png"/></td>
+                <td>${hourlyTemp}°F</td>
+                </tr>`
+            }
+            else {
+                hourlyTable.innerHTML = hourlyTable.innerHTML+`<tr>
+                <td>${currHour}</td>
+                <td><img src="assets/accuiconsnew/${iconNumber}-s.png"/></td>
+                <td>${hourlyTemp}°F</td>
+                </tr>`
+            }
+        }
+        else {
+            if(iconNumber>=1 && iconNumber<=23) { // INSERT JEN'S ICONS HERE
+                hourlyTable.innerHTML = hourlyTable.innerHTML+`<tr>
+                <td>${currHour}</td>
+                <td><img src="assets/accuiconsnew/${iconNumber}-s.png"/></td>
+                <td>${hourlyTemp}°F</td>
+                </tr>`
+            }
+            else {
+                hourlyTable.innerHTML = hourlyTable.innerHTML+`<tr class="last-table">
+                <td>${currHour}</td>
+                <td><img src="assets/accuiconsnew/${iconNumber}-s.png"/></td>
+                <td>${hourlyTemp}°F</td>
+                </tr>`    
+            }
+        }
+    }
+}
+
