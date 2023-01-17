@@ -102,6 +102,7 @@
 
 .current-color{
     float: right;
+    padding-right: 6px;
 }
 
 .current-text{
