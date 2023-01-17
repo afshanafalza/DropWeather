@@ -416,7 +416,7 @@ const displayConditions = async (locKeyVal) => {
             <br>
         </div>
         <div class="current-color">
-            drops-icon
+            <img src="assets/conditicons/drops.png"/>
         </div>
         <p class="current-text"> of rain in last 24 hours</p>
      </div>`
