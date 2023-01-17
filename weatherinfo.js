@@ -277,7 +277,7 @@ const createTable = async (locKeyVal) => {
             if(iconNumber>=1 && iconNumber<=23) { // INSERT JEN'S ICONS HERE
                 hourlyTable.innerHTML = hourlyTable.innerHTML+`<tr>
                 <td>${currHour}</td>
-                <td><img src="assets/accuiconsnew/${iconNumber}-s.png"/></td>
+                <td><img src="assets/jennicons/${iconNumber}-s.png"/></td>
                 <td>${hourlyTemp}°F</td>
                 </tr>`
             }
@@ -293,7 +293,7 @@ const createTable = async (locKeyVal) => {
             if(iconNumber>=1 && iconNumber<=23) { // INSERT JEN'S ICONS HERE
                 hourlyTable.innerHTML = hourlyTable.innerHTML+`<tr>
                 <td>${currHour}</td>
-                <td><img src="assets/accuiconsnew/${iconNumber}-s.png"/></td>
+                <td><img src="assets/jennicons/${iconNumber}-s.png"/></td>
                 <td>${hourlyTemp}°F</td>
                 </tr>`
             }

@@ -294,6 +294,10 @@ button[type="submit"]:hover {
     table-layout:fixed;
 }
 
+#hourly-table img {
+  width: 40px;
+}
+
 
 .scroll-table > table td{
     padding: 1em;

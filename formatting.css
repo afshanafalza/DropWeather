@@ -108,6 +108,9 @@
     text-align: left;
     clear:both;
     padding-top: 10px;
+    font-size: 14px;
+    overflow: scroll;
+    height: 60px;
 }
 
 .rect1 > .icon{
