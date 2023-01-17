@@ -313,11 +313,19 @@ button[type="submit"]:hover {
  margin: 10px;
 }
 
-#drops{
+
+.condition-data img {
   width: 30px;
+  padding-right: 5px;
+  padding-top: 5px;
 }
 
-#fname{
+
+#raininch {
+  font-size: large;
+}
+
+#fname {
   border: none;
 }
 
