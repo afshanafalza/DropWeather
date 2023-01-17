@@ -79,7 +79,7 @@
 }
 
 .flex6 {
-    background-color: rgb(91, 91, 91, 0.4);
+    background-color: rgba(236, 249, 250, 0.25);
     display: flex;
     padding-top: 50px;
     flex-direction: column;

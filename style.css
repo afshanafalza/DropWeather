@@ -112,9 +112,9 @@ td > .temp{
 .rect2 {
   width: 130px;
   height: 145px;
-
-  background: rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 4px 10px 1px rgba(122, 191, 220, 0.3);
+  color:#6A7B8A;
+  background: rgba(236, 249, 250, 0.4);
+  box-shadow: 0px 4px 10px 1px rgba(138, 138, 138, 0.3);
   border-radius: 12px;
 }
 
@@ -136,7 +136,8 @@ td > .temp{
     width: 395px;
     height: 556px;
     display: inline-grid;
-    background: rgba(0, 0, 0, 0.25);
+    color:#6A7B8A;
+    background: rgba(236, 249, 250, 0.4);
     box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.08);
     border-radius: 16px;
 }
@@ -144,8 +145,8 @@ td > .temp{
 .rect4 {
     width: 219px;
     height: 145px;
-
-    background: rgba(0, 0, 0, 0.25);
+    color:#6A7B8A;
+    background: rgba(236, 249, 250, 0.4);
     box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.08);
     border-radius: 16px;
 }
@@ -153,8 +154,8 @@ td > .temp{
 .rect5 {
     width: 219px;
     height: 145px;
-
-    background: rgba(0, 0, 0, 0.25);
+    color:#6A7B8A;
+    background: rgba(236, 249, 250, 0.4);
     box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.08);
     border-radius: 16px;
 }
@@ -162,7 +163,7 @@ td > .temp{
 .rect6 {
   width: 239px;
   height: 42px;
-  background: #FFFFFF;
+  color:#6A7B8A;
   box-shadow: 0px 4px 10px rgb(255 255 255 / 49%);
   border-radius: 18px;
   transition: all 2s ease; 
@@ -254,14 +255,14 @@ button[type="submit"]:hover {
 .rect7 {
     width: 219px;
     height: 145px;
-    
-    background: rgba(0, 0, 0, 0.25);
+    color:#6A7B8A;
+    background: rgba(236, 249, 250, 0.4);
     box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.08);
     border-radius: 16px;
 }
 
 .title{
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(236, 236, 236, 0.4);
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
     padding: 10px;
@@ -388,44 +389,6 @@ input:focus {
   user-select: none;
 }
 
-.compass {
-  height: 80px;
-  width: 80px;
-  border-radius: 50%;
-  display: inline-block;
-  border-style: dashed;
-  border-color: #d9d9d9;
-  border-width: 1.5px;
-}
-
-.north {
-  font-size: 10px;
-}
-
-.west {
-  font-size: 10px;
-}
-
-.east {
-  font-size: 10px;
-}
-
-.south {
-  font-size: 10px;
-}
-
-.compass-arrow {
-  width: 60px;
-  rotate: -90deg;
-}
-
-.s {
-  rotate: 180deg;
-}
-
-/* .ne {
-  rotate: 98deg;
-} */
 
 
 
@@ -433,3 +396,105 @@ input:focus {
 .material-icons.md-dark { color: #818494; }
 /* THE ADDED STUFF FOR SEARCH BAR */
 
+
+
+.compass {
+  display: block;
+  width: 145px;
+  height: 145px;
+  border-radius: 100%;
+  position: relative;
+  color: #6A7B8A;
+  box-shadow: 0px 0px 15px rgb(236 236 236 / 40%);
+  background-image: url(assets/gauge.png);
+  background-size: contain;
+}
+.compass::before {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    line-height: 30px;
+    font-size: 14px;
+    top: -2px;
+  }
+  .direction {
+    height: 100%;
+    display: block;
+    border-radius: 100%;
+    border-color: #ffffff6e;
+    box-shadow: inset 1px 0px 15px 0px #2b363b5e;
+  }
+  .direction p {
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      line-height: 80px;
+      display: block;
+      margin-top: -45px;
+      font-size: 26px;
+      font-weight: 600;
+  }
+  
+  .direction p span {
+        display: block;
+        line-height: normal;
+        margin-top: -29px;
+        font-size: 10px;
+        text-transform: uppercase;
+        font-weight: normal;
+  }
+  
+  .arrow {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+  }
+  .arrow::after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 10px solid rgb(255, 255, 255);
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      margin-left: -5px;
+      z-index: 99;
+  }
+
+    #nne.arrow { transform: rotate(22.5deg); }
+    #ne.arrow { transform: rotate(45deg); }
+    #ene.arrow { transform: rotate(67.5deg); }
+    #e.arrow { transform: rotate(90deg); }
+    #ese.arrow { transform: rotate(112.5deg); }
+    #se.arrow { transform: rotate(135deg); }
+    #sse.arrow { transform: rotate(157.5deg); }
+    #s.arrow { transform: rotate(180deg); }
+    #ssw.arrow { transform: rotate(202.5deg); }
+    #sw.arrow { transform: rotate(-135deg); }
+    #wsw.arrow { transform: rotate(-114.5deg); }
+    #w.arrow { transform: rotate(-90deg); }
+    #wnw.arrow { transform: rotate(-69.5deg); }
+    #nw.arrow { transform: rotate(-45deg); }
+    #nnw.arrow { transform: rotate(-24.5deg);}
+
+#wind-tile{
+  align-items: center;
+  border-radius: 100%;
+  width:145px;
+  box-shadow: none;
+  margin-top: 0;
+  background: rgba(236, 249, 250, 0.4);
+}
+
+#wind-data{
+  margin: 0;
+}
