@@ -29,7 +29,9 @@ let defaultStateName;
 
 // Hourly Table Variables
 let hourlyTable = document.getElementById("hourly-table");
-console.log(hourlyTable);
+
+// Weather Condition Variables
+let UVTile = document.getElementById("UV-tile");
 
 // Mapping the days
 let dayMap = new Map([
@@ -245,6 +247,7 @@ const clickLocationTiles = async (idNames) => {
             // Call function where we update weather conditions  
             getForecastData(selectedLocKey);  
             createTable(selectedLocKey);
+            displayConditions(selectedLocKey);
         })
     }
 }
@@ -337,6 +340,27 @@ const displayConditions = async (locKeyVal) => {
     console.log(data);
 
     // DISPLAYING THE UV INDEX
-    
+    let UVval = data["DailyForecasts"][0]["AirAndPollen"][5]["Value"];
+    let UVcat = data["DailyForecasts"][0]["AirAndPollen"][5]["Category"];
+    let UVmap = new Map([
+        ["Low", "No need to hide indoors, but don't forget the sunscreen!"],
+        ["High", "Time to break out the big guns: high SPF sunscreen, protective clothing, and shade seeking."],
+        ["Good", "Enjoy the great outdoors, but don't forget to protect that skin!"],
+        ["Moderate", "Your standard sunscreen, clothing, and shade routine will do the trick."],
+        ["Unhealthy", "Time to step up your sun protection game."],
+        ["Hazardous", "Stay indoors if possible, otherwise break out the full armor: high SPF sunscreen, protective clothing, and shade seeking."],
+    ]);
+    UVTile.innerHTML = `<div class="title"> UV Index </div>
+    <div class="condition-data">
+        <div class="current-value">
+            ${UVval}
+            <br>
+            ${UVcat}
+        </div>
+        <div class="current-color">
+            red-dot
+        </div>
+        <p class="current-text"> ${UVmap.get(UVcat)}</p>
+     </div>`;
 }
 
