@@ -34,7 +34,8 @@ let hourlyTable = document.getElementById("hourly-table");
 let UVTile = document.getElementById("UV-tile");
 let airTile = document.getElementById("air-tile");
 let rainTile = document.getElementById("rain-tile");
-
+let windTile = document.getElementById("wind-tile");
+let sunTile = document.getElementById("sun-tile");
 
 // Mapping the days
 let dayMap = new Map([
@@ -336,6 +337,33 @@ function convertTime(dateTime) {
     return currHour;
 }
 
+// Converting the time format to "XAM/PM"
+function convertTime2(dateTime) {
+    let currHour = parseInt(dateTime.substring(dateTime.indexOf(`T`)+1, dateTime.indexOf(`:`)));
+    let currMins = dateTime.substring(dateTime.indexOf(`:`), dateTime.indexOf(`:`)+3);
+    console.log("CURRMINS: "+currMins);
+        
+    // Converting hour to 12 scale
+    if(currHour/12>=1) {
+        if(currHour%12==0) {
+            currHour = `12${currMins}PM`;
+        }
+        else {
+            currHour = (currHour%12)+`${currMins}PM`;
+        }
+    }
+    else {
+        if(currHour%12==0) {
+            currHour = `12${currMins}AM`;
+        }
+        else {
+            currHour = (currHour%12)+`${currMins}AM`;
+        }
+    }
+
+    return currHour;
+}
+
 // Other Weather Conditions
 const displayConditions = async (locKeyVal) => {
     const response = await fetch(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${locKeyVal}.json?apikey=${apiKey}&details=true`);
@@ -409,6 +437,8 @@ const displayConditions = async (locKeyVal) => {
     // RAIN FALL
     // Rain Fall Variables
     let rainIn = data["DailyForecasts"][0]["Day"]["Rain"]["Value"];
+
+    // Displaying Rain Fall Information
     rainTile.innerHTML = `<div class="title"> Rainfall </div>
     <div class="condition-data">
         <div class="current-value">
@@ -420,5 +450,42 @@ const displayConditions = async (locKeyVal) => {
         </div>
         <p class="current-text"> of rain in last 24 hours</p>
      </div>`
+
+    // WIND
+    // Wind Variables
+    let windVal = data["DailyForecasts"][0]["Day"]["Wind"]["Speed"]["Value"];
+    let windDir = data["DailyForecasts"][0]["Day"]["Wind"]["Direction"]["English"];
+
+    // Displaying Wind Information
+    windTile.innerHTML = `<div class="title"> Wind </div>
+    <div class="condition-data">
+        <div class="current-value">
+            ${windVal} mph ${windDir}
+            <br>
+        </div>
+        <div class="current-color">
+            wind-icon
+        </div>
+    </div>`;
+
+    // SUNSET AND SUNRISE
+    // Sunset and Sunrise Variables
+    let sunsetTime = convertTime2(data["DailyForecasts"][0]["Sun"]["Set"]);
+    let sunriseTime = convertTime2(data["DailyForecasts"][0]["Sun"]["Rise"]);
+
+    sunTile.innerHTML = `<div class="title"> Sunset and Sunrise </div>
+    <div class="condition-data">
+        <div class="current-value">
+            <p class="current-text"> 
+                Sunset: ${sunsetTime}
+                <br>
+                Sunrise: ${sunriseTime}
+            </p>
+        </div>
+        <div class="current-color">
+            sun-icon
+        </div>
+    </div>`;
+
 }
 
