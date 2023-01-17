@@ -388,6 +388,44 @@ input:focus {
   user-select: none;
 }
 
+.compass {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  display: inline-block;
+  border-style: dashed;
+  border-color: #d9d9d9;
+  border-width: 1.5px;
+}
+
+.north {
+  font-size: 10px;
+}
+
+.west {
+  font-size: 10px;
+}
+
+.east {
+  font-size: 10px;
+}
+
+.south {
+  font-size: 10px;
+}
+
+.compass-arrow {
+  width: 60px;
+  rotate: -90deg;
+}
+
+.s {
+  rotate: 180deg;
+}
+
+/* .ne {
+  rotate: 98deg;
+} */
 
 
 

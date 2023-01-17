@@ -457,16 +457,16 @@ const displayConditions = async (locKeyVal) => {
     let windDir = data["DailyForecasts"][0]["Day"]["Wind"]["Direction"]["English"];
 
     // Displaying Wind Information
-    windTile.innerHTML = `<div class="title"> Wind </div>
-    <div class="condition-data">
-        <div class="current-value">
-            ${windVal} mph ${windDir}
-            <br>
-        </div>
-        <div class="current-color">
-            wind-icon
-        </div>
-    </div>`;
+    // windTile.innerHTML = `<div class="title"> Wind </div>
+    // <div class="condition-data">
+    //     <div class="current-value">
+    //         ${windVal} mph ${windDir}
+    //         <br>
+    //     </div>
+    //     <div class="current-color">
+    //         wind-icon
+    //     </div>
+    // </div>`;
 
     // SUNSET AND SUNRISE
     // Sunset and Sunrise Variables

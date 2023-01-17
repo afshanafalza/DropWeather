@@ -167,3 +167,36 @@
     right: 0;
 }
 /* THE ADDED STUFF FOR SEARCH BAR!! */
+
+#wind-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.compass {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.north {
+    padding-top: 3px;
+}
+
+.west {
+    padding-left: 3px;
+}
+
+.east {
+    padding-right: 3px;
+}
+
+.south {
+    padding-bottom: 3px;
+}
+
+.compass-middle {
+    display: flex;
+    justify-content: space-between;
+}
+
