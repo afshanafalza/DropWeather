@@ -305,12 +305,14 @@ button[type="submit"]:hover {
 }
 
 .last-table > td{
-    padding: 1em;
-    border-bottom: 0px;
+  padding: 1em;
+  border-bottom: 0px;
 }
 
 .condition-data{
- margin: 10px;
+  margin-right: 7px;
+  margin-left: 7px;
+  margin-top: 5px;
 }
 
 
