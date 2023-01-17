@@ -32,6 +32,9 @@ let hourlyTable = document.getElementById("hourly-table");
 
 // Weather Condition Variables
 let UVTile = document.getElementById("UV-tile");
+let airTile = document.getElementById("air-tile");
+let rainTile = document.getElementById("rain-tile");
+
 
 // Mapping the days
 let dayMap = new Map([
@@ -277,7 +280,7 @@ const createTable = async (locKeyVal) => {
             if(iconNumber>=1 && iconNumber<=23) { // INSERT JEN'S ICONS HERE
                 hourlyTable.innerHTML = hourlyTable.innerHTML+`<tr>
                 <td>${currHour}</td>
-                <td><img src="assets/jennicons/${iconNumber}-s.png"/></td>
+                <td><img src="assets/accuiconsnew/${iconNumber}-s.png"/></td>
                 <td>${hourlyTemp}°F</td>
                 </tr>`
             }
@@ -293,7 +296,7 @@ const createTable = async (locKeyVal) => {
             if(iconNumber>=1 && iconNumber<=23) { // INSERT JEN'S ICONS HERE
                 hourlyTable.innerHTML = hourlyTable.innerHTML+`<tr>
                 <td>${currHour}</td>
-                <td><img src="assets/jennicons/${iconNumber}-s.png"/></td>
+                <td><img src="assets/accuiconsnew/${iconNumber}-s.png"/></td>
                 <td>${hourlyTemp}°F</td>
                 </tr>`
             }
@@ -339,10 +342,21 @@ const displayConditions = async (locKeyVal) => {
     const data = await response.json();
     console.log(data);
 
-    // DISPLAYING THE UV INDEX
-    let UVval = data["DailyForecasts"][0]["AirAndPollen"][5]["Value"];
-    let UVcat = data["DailyForecasts"][0]["AirAndPollen"][5]["Category"];
-    let UVmap = new Map([
+    // Icons
+    let iconMap = new Map([
+        ["Low", "low.png"],
+        ["High", "high.png"],
+        ["Good", "good.png"],
+        ["Moderate", "moderate.png"],
+        ["Unhealthy", "unhealthy.png"],
+        ["Hazardous", "hazardous.png"],
+    ]);
+
+    // UV INDEX
+    // UV Variables
+    let UVVal = data["DailyForecasts"][0]["AirAndPollen"][5]["Value"];
+    let UVCat = data["DailyForecasts"][0]["AirAndPollen"][5]["Category"];
+    let UVMap = new Map([
         ["Low", "No need to hide indoors, but don't forget the sunscreen!"],
         ["High", "Time to break out the big guns: high SPF sunscreen, protective clothing, and shade seeking."],
         ["Good", "Enjoy the great outdoors, but don't forget to protect that skin!"],
@@ -350,17 +364,61 @@ const displayConditions = async (locKeyVal) => {
         ["Unhealthy", "Time to step up your sun protection game."],
         ["Hazardous", "Stay indoors if possible, otherwise break out the full armor: high SPF sunscreen, protective clothing, and shade seeking."],
     ]);
+
+    // Displaying UV Information
     UVTile.innerHTML = `<div class="title"> UV Index </div>
     <div class="condition-data">
         <div class="current-value">
-            ${UVval}
+            ${UVVal}
             <br>
-            ${UVcat}
+            ${UVCat}
         </div>
         <div class="current-color">
-            red-dot
+            <img src="assets/conditicons/${iconMap.get(UVCat)}"/>
         </div>
-        <p class="current-text"> ${UVmap.get(UVcat)}</p>
+        <p class="current-text"> ${UVMap.get(UVCat)}</p>
      </div>`;
+
+    // AIR QUALITY
+    // Air Quality Variables
+    let airVal = data["DailyForecasts"][0]["AirAndPollen"][0]["Value"];
+    let airCat = data["DailyForecasts"][0]["AirAndPollen"][0]["Category"]; 
+    let airMap = new Map([
+        ["Low", "Keep it indoors, and freshen up the air with some purifiers."],
+        ["High", "Time to break out the N95 mask and stay indoors."],
+        ["Good", "Fresh air, fresh mind! Get outside and enjoy the good air."],
+        ["Moderate", "Take it easy on the outdoor activities, and freshen up your home with some purifiers."],
+        ["Unhealthy", "Time to break out the N95 mask and stay indoors."],
+        ["Hazardous", "It's best to stay indoors, if possible, and freshen up the air with some purifiers."],
+    ]);
+
+    // Displaying Air Quality Information
+    airTile.innerHTML = `<div class="title"> Air Quality </div>
+    <div class="condition-data">
+        <div class="current-value">
+            ${airVal}
+            <br>
+            ${airCat}
+        </div>
+        <div class="current-color">
+            <img src="assets/conditicons/${iconMap.get(airCat)}"/>
+        </div>
+        <p class="current-text">${airMap.get(airCat)}</p>
+    </div>`;
+
+    // RAIN FALL
+    // Rain Fall Variables
+    let rainIn = data["DailyForecasts"][0]["Day"]["Rain"]["Value"];
+    rainTile.innerHTML = `<div class="title"> Rainfall </div>
+    <div class="condition-data">
+        <div class="current-value">
+            ${rainIn}"
+            <br>
+        </div>
+        <div class="current-color">
+            drops-icon
+        </div>
+        <p class="current-text"> of rain in last 24 hours</p>
+     </div>`
 }
 
