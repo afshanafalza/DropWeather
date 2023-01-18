@@ -37,7 +37,7 @@ let searchBarFlex = document.getElementById("search-bar-flex");
 let UVTile = document.getElementById("UV-tile");
 let airTile = document.getElementById("air-tile");
 let rainTile = document.getElementById("rain-tile");
-let windTile = document.getElementById("wind-tile");
+let windTile = document.getElementById("wind-direction");
 let sunTile = document.getElementById("sun-tile");
 
 // Mapping the days
@@ -476,14 +476,8 @@ const displayConditions = async (locKeyVal) => {
     //     </div>
     // </div>`;
 
-    windTile.innerHTML = `<div class="condition-data" id="wind-data">
-    <div class="compass">
-        <div class="direction">
-          <p> ${windVal} <span>mph</span></p>
-        </div>
-        <div class="arrow" id="${windDir}"></div>
-    </div>
-</div>`;
+    windTile.innerHTML = `<p> ${windVal} <span>mph</span></p>`;
+    document.getElementsByClassName('arrow')[0].id = windDir; //change ID of arrow class
 
     // SUNSET AND SUNRISE
     // Sunset and Sunrise Variables
