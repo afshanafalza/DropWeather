@@ -350,8 +350,6 @@ button[type="submit"]:hover {
 
 .condition-data img {
   width: 30px;
-  padding-right: 5px;
-  padding-top: 5px;
 }
 
 
@@ -492,9 +490,9 @@ input:focus {
       content: "";
       width: 0;
       height: 0;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-bottom: 10px solid rgb(255, 255, 255);
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-bottom: 14px solid rgb(255, 255, 255);
       position: absolute;
       top: -6px;
       left: 50%;

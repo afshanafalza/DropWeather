@@ -104,14 +104,12 @@
 }
 
 .current-value{
-    float: left;
     transition: all 0.5s;
 }
 
 .current-color{
-    float: right;
-    padding-right: 6px;
     transition: all 0.5s;
+    margin: 15px;
 }
 
 .current-text{
@@ -132,7 +130,7 @@
     float: none;
 }
 #sun-tile img {
-    width: 50px;
+    width: 35px;
 }
 
 

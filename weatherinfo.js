@@ -396,13 +396,13 @@ const displayConditions = async (locKeyVal) => {
     // Displaying UV Information
     UVTile.innerHTML = `<div class="title"> UV Index </div>
     <div class="condition-data">
+        <div class="current-color">
+            <img src="assets/conditicons/${iconMap.get(UVCat)}"/>
+        </div>
         <div class="current-value">
             ${UVVal}
             <br>
             ${UVCat}
-        </div>
-        <div class="current-color">
-            <img src="assets/conditicons/${iconMap.get(UVCat)}"/>
         </div>
         <p class="current-text"> ${UVMap.get(UVCat)}</p>
      </div>`;
@@ -423,13 +423,13 @@ const displayConditions = async (locKeyVal) => {
     // Displaying Air Quality Information
     airTile.innerHTML = `<div class="title"> Air Quality </div>
     <div class="condition-data">
+        <div class="current-color">
+            <img src="assets/conditicons/${iconMap.get(airCat)}"/>
+        </div>
         <div class="current-value">
             ${airVal}
             <br>
             ${airCat}
-        </div>
-        <div class="current-color">
-            <img src="assets/conditicons/${iconMap.get(airCat)}"/>
         </div>
         <p class="current-text">${airMap.get(airCat)}</p>
     </div>`;
@@ -441,14 +441,15 @@ const displayConditions = async (locKeyVal) => {
     // Displaying Rain Fall Information
     rainTile.innerHTML = `<div class="title"> Rainfall </div>
     <div class="condition-data">
-        <div class="current-value">
-            ${rainIn}"
-            <br>
-        </div>
         <div class="current-color">
             <img id="drops" src="assets/conditicons/drops.png">
         </div>
-        <p class="current-text"> of rain in last 24 hours</p>
+        <div class="current-value">
+            ${rainIn}"
+            <br>
+            of rain
+        </div>
+        <p class="current-text"> There have been ${rainIn} inches of rain recorded at your location over the past 24 hours </p>
      </div>`
 
     // WIND
@@ -478,11 +479,14 @@ const displayConditions = async (locKeyVal) => {
         <div class="current-color">
             <img src="assets/conditicons/sunset.png">
         </div>
+        <div class="current-value">
+            Sunset: ${sunsetTime}
+            <br>
+            Sunrise: ${sunriseTime}
+        </div>
     </div>
     <p class="current-text"> 
-        Sunset: ${sunsetTime}
-        <br>
-        Sunrise: ${sunriseTime}
+        Curfew? Plans? Make sure to get home on time
     </p>`;
 
 }
