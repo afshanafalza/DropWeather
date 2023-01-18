@@ -26,12 +26,23 @@
     <div class="flex0">
         <!-- All Weather Info -->
         <div class="flex1">
+            <div class="topBar">
             <!-- Time and Location Info -->
             <div class="time">
                 <div id="clock">
                 Loading... <div class="ampm"></div>
                 </div>
                 <div class="location"><img src="assets/location.png">Location being UTC</div>
+            </div>
+            <div class="flex8" id="search-bar-area">
+                <div class="text1" id="selected-cities" >
+                    Search Locations
+                </div>
+                <input type="text" class="rect6" id="search-box"><button class="material-icons md-26 md-dark" id="enter-search-button">search</button></input>
+                <button class="circ1" id="open-search-button">
+                    <span class="material-icons md-26 md-dark">search</span>
+                </button>
+            </div>
             </div>
             <!-- Days Section -->
             <div class="flex2">
@@ -248,18 +259,9 @@
             </div>
         </div>
         <!-- Location Finder -->
-        <div class="flex6">
+        <div class="flex6" id="search-bar-flex">
             <!-- Search Bar Area -->
             <!-- THE ADDED STUFF FOR SEARCH BAR -->
-            <div class="flex8" id="search-bar-area">
-                <div class="text1" id="selected-cities" >
-                    Selected Cities
-                </div>
-                <input type="text" class="rect6" id="search-box"><button class="material-icons md-26 md-dark" id="enter-search-button">search</button></input>
-                <button class="circ1" id="open-search-button">
-                    <span class="material-icons md-26 md-dark">search</span>
-                </button>
-            </div>
             <div class="flex7">
                 <!-- 
                 <div class="rect7">

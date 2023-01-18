@@ -43,22 +43,25 @@
   }
 
 
-
+.topBar{
+    display: flex;
+    justify-content: space-around;
+}
 
 .flex1 {
     display: flex;
     flex-direction: column;
     gap: 58px;
-    padding-left: 58px;
-    padding-right: 50px;
+    padding-left: 13px;
+    padding-right: 13px;
     padding-top: 50px;
     overflow: auto;
-    width: 80%;
+    width: 100%;
 }
 
 .flex2 {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 40px;
     flex-direction: row;
 }
@@ -67,6 +70,7 @@
     display: flex;
     gap: 34px;
     margin-bottom: 3em;
+    justify-content: center;
 }
 
 .flex4 {
@@ -92,13 +96,14 @@
     display: flex;
     padding-top: 50px;
     flex-direction: column;
-    padding-right: 58px;
-    padding-left: 68px;
     gap: 70px;
     position: relative;
     overflow: scroll;
     height: 100%;
     overflow-x: hidden;
+    transition: all 0.5s; 
+    align-items: center;
+    width: 0px;
 }
 
 .flex7 {
@@ -109,8 +114,8 @@
     opacity: 0;
     transition: all 0.5s ease; 
     position: absolute;
-    top: 45px;
-    padding: 5px
+    right: -50px;
+    padding: 5px;
 }
 
 .current-value{
