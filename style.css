@@ -398,7 +398,7 @@ button[type="submit"]:hover {
 
 button {
   border: none;
-  cursor: pointer;
+  cursor: auto;
   background: none;
 }
 
@@ -410,8 +410,16 @@ input:focus {
   outline: none;
 }
 
-.rect7 {
+#open-search-button {
   cursor: pointer;
+}
+
+#enter-search-button {
+  cursor: pointer;
+}
+
+.rect7 {
+  cursor: auto;
   transition: 1s ease, transform .18s;
 }
 
@@ -420,7 +428,7 @@ input:focus {
 }
 
 .title {
-  cursor: pointer;
+  cursor: auto;
   user-select: none;
 }
 
