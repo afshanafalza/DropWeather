@@ -476,6 +476,15 @@ const displayConditions = async (locKeyVal) => {
     //     </div>
     // </div>`;
 
+    windTile.innerHTML = `<div class="condition-data" id="wind-data">
+    <div class="compass">
+        <div class="direction">
+          <p> ${windVal} <span>mph</span></p>
+        </div>
+        <div class="arrow" id="${windDir}"></div>
+    </div>
+</div>`;
+
     // SUNSET AND SUNRISE
     // Sunset and Sunrise Variables
     let sunsetTime = convertTime2(data["DailyForecasts"][0]["Sun"]["Set"]);

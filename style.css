@@ -512,21 +512,21 @@ input:focus {
       transition: transform .7s ease-in-out;
   }
 
-    #nne.arrow { transform: rotate(22.5deg); }
-    #ne.arrow { transform: rotate(45deg); }
-    #ene.arrow { transform: rotate(67.5deg); }
-    #e.arrow { transform: rotate(90deg); }
-    #ese.arrow { transform: rotate(112.5deg); }
-    #se.arrow { transform: rotate(135deg); }
-    #sse.arrow { transform: rotate(157.5deg); }
-    #s.arrow { transform: rotate(180deg); }
-    #ssw.arrow { transform: rotate(202.5deg); }
-    #sw.arrow { transform: rotate(-135deg); }
-    #wsw.arrow { transform: rotate(-114.5deg); }
-    #w.arrow { transform: rotate(-90deg); }
-    #wnw.arrow { transform: rotate(-69.5deg); }
-    #nw.arrow { transform: rotate(-45deg); }
-    #nnw.arrow { transform: rotate(-24.5deg);}
+    #NNE.arrow { transform: rotate(22.5deg); }
+    #NE.arrow { transform: rotate(45deg); }
+    #ENE.arrow { transform: rotate(67.5deg); }
+    #E.arrow { transform: rotate(90deg); }
+    #ESE.arrow { transform: rotate(112.5deg); }
+    #SE.arrow { transform: rotate(135deg); }
+    #SSE.arrow { transform: rotate(157.5deg); }
+    #S.arrow { transform: rotate(180deg); }
+    #SSW.arrow { transform: rotate(202.5deg); }
+    #SW.arrow { transform: rotate(-135deg); }
+    #WSW.arrow { transform: rotate(-114.5deg); }
+    #W.arrow { transform: rotate(-90deg); }
+    #WNW.arrow { transform: rotate(-69.5deg); }
+    #NW.arrow { transform: rotate(-45deg); }
+    #NNW.arrow { transform: rotate(-24.5deg);}
 
     
 .rect5:hover .compass{
