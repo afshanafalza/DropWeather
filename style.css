@@ -495,6 +495,7 @@ input:focus {
     display: block;
     position: absolute;
     top: 0;
+    transition: transform .7s ease-in-out;
   }
   .arrow::after {
       content: "";
@@ -508,6 +509,7 @@ input:focus {
       left: 50%;
       margin-left: -5px;
       z-index: 99;
+      transition: transform .7s ease-in-out;
   }
 
     #nne.arrow { transform: rotate(22.5deg); }
