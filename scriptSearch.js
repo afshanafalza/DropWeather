@@ -21,7 +21,7 @@ openSearchButton.addEventListener('click', () => {
     inputField.style.visibility = 'visible';
     inputField.style.opacity = 1;
     inputField.style.width = '200px'; // Change width so animation will appear
-    searchBarFlex.style.width = '400px';
+    searchBarFlex.style.width = '500px';
 
     setTimeout(function () {
         document.getElementById("selected-cities").style.visibility= 'hidden';

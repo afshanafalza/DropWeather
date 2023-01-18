@@ -104,6 +104,7 @@
     transition: all 0.5s; 
     align-items: center;
     width: 0px;
+    border-radius: 16px;
 }
 
 .flex7 {

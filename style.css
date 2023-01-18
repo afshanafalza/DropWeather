@@ -55,6 +55,8 @@ body, html {
     background: rgba(177, 221, 240, 0.7);
     box-shadow: 0px 4px 10px 1px rgba(122, 191, 220, 0.3);
     border-radius: 12px;
+    backdrop-filter: blur(8.3px);
+    -webkit-backdrop-filter: blur(8.3px);
 }
 
 .rect1 > .icon {
@@ -116,6 +118,8 @@ td > .temp{
   background: rgba(236, 249, 250, 0.4);
   box-shadow: 0px 4px 10px 1px rgba(138, 138, 138, 0.3);
   border-radius: 12px;
+  backdrop-filter: blur(8.3px);
+  -webkit-backdrop-filter: blur(8.3px);
 }
 
 .rect2 > .icon{
@@ -140,6 +144,8 @@ td > .temp{
     background: rgba(236, 249, 250, 0.4);
     box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.08);
     border-radius: 16px;
+    backdrop-filter: blur(8.3px);
+    -webkit-backdrop-filter: blur(8.3px);
 }
 
 .rect4 {
@@ -149,6 +155,8 @@ td > .temp{
     background: rgba(236, 249, 250, 0.4);
     box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.08);
     border-radius: 16px;
+    backdrop-filter: blur(8.3px);
+    -webkit-backdrop-filter: blur(8.3px);
 }
 
 .rect5 {
@@ -159,6 +167,8 @@ td > .temp{
     background: rgba(236, 249, 250, 0.4);
     box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.08);
     border-radius: 16px;
+    backdrop-filter: blur(8.3px);
+    -webkit-backdrop-filter: blur(8.3px);
 }
 
 .rect5:hover .current-value, .rect5:hover .current-color{
@@ -364,7 +374,7 @@ button[type="submit"]:hover {
 
 /* THE ADDED STUFF FOR SEARCH BAR */
 .circ1 {
-  width: 42px;
+  width: 47px;
   height: 42px;
 
   background: #FFFFFF;
@@ -377,12 +387,12 @@ button[type="submit"]:hover {
   height: 15px;
   font-family: 'Lato';
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 16px;
   line-height: 19px;
   letter-spacing: -0.015em;
   color: #FFFFFF;
-  overflow: hidden;
+  letter-spacing: 0.6px;
   white-space: nowrap;
 }
 
