@@ -1,5 +1,5 @@
 {
-  "background_color": "#d0dcec",
+  "background_color": "#b8d4e4",
   "description": "A weather web app built using CSS, HTML, and JavaScript, along with AccuWeather API. It features a beautiful design and pulls accurate weather information, allowing one to search for weather data by location, and view current conditions as well as forecasts for the next several days.",
   "dir": "ltr",
   "display": "standalone",
@@ -10,19 +10,12 @@
   "start_url": "/",
   "theme_color": "#b7d7e5",
   "categories": [],
-  "screenshots":[
-  {
-    "src": "https://www.pwabuilder.com/assets/screenshots/screen1.png",
-    "sizes": "2880x1800",
-    "type": "image/png",
-    "description": "PWABuilder Home Screen"
-  }
-  ],
+  "screenshots": [],
   "icons": [
     {
       "src": "/assets/favicon.ico",
       "type": "image/x-icon"
     }
   ],
-  "lang": "en"
+  "shortcuts": []
 }
