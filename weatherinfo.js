@@ -68,7 +68,7 @@ fetch(
 
 // Displaying the default location forecast data
 const getDefaultLocationData = async () => {
-    const response = await fetch(`http://dataservice.accuweather.com/locations/v1/postalcodes/US/search?apikey=${apiKey}&q=${userZip}`);
+    const response = await fetch(`https://dataservice.accuweather.com/locations/v1/postalcodes/US/search?apikey=${apiKey}&q=${userZip}`);
     const data = await response.json();
     console.log(data);
 
@@ -88,7 +88,7 @@ const getDefaultLocationData = async () => {
 // AccuWeather API
 // Grabbing location data based off input
 const getLocationData = async () => {
-    const response = await fetch(`http://dataservice.accuweather.com/locations/v1/US/search?apikey=${apiKey}&q=${locValue}`);
+    const response = await fetch(`https://dataservice.accuweather.com/locations/v1/US/search?apikey=${apiKey}&q=${locValue}`);
     const data = await response.json();
     console.log(data);
 
@@ -144,7 +144,7 @@ function makeValidString(str) {
 
 // Displaying forecast data
 const getForecastData = async (locKeyVal) => {
-    const response = await fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locKeyVal}?apikey=${apiKey}`);
+    const response = await fetch(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locKeyVal}?apikey=${apiKey}`);
     const data = await response.json();
     console.log(data);
 
@@ -240,7 +240,7 @@ const clickLocationTiles = async (idNames) => {
 
 const createTable = async (locKeyVal) => {
     // Grabbing hourly forecast data
-    const response = await fetch(`http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${locKeyVal}?apikey=${apiKey}`);
+    const response = await fetch(`https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${locKeyVal}?apikey=${apiKey}`);
     const data = await response.json();
     console.log(data);
 
