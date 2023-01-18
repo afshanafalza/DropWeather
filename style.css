@@ -152,12 +152,23 @@ td > .temp{
 }
 
 .rect5 {
-    width: 219px;
-    height: 145px;
+    width: 170px;
+    height: 170px;
     color:#6A7B8A;
+    position: relative;
     background: rgba(236, 249, 250, 0.4);
     box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.08);
     border-radius: 16px;
+}
+
+.rect5:hover .current-value, .rect5:hover .current-color{
+  opacity: 0%;
+}
+
+
+.rect5:hover .current-text{
+  opacity: 100%;
+  top: 40px;
 }
 
 .rect6 {
@@ -420,14 +431,16 @@ input:focus {
 
 .compass {
   display: block;
-  width: 145px;
-  height: 145px;
+  width: 150px;
+  height: 150px;
   border-radius: 100%;
   position: relative;
+  margin: 10px;
   color: #6A7B8A;
   box-shadow: 0px 0px 15px rgb(236 236 236 / 40%);
-  background-image: url(assets/gauge.png);
+  background: url(assets/gaugeStyles/gague3rd.png), rgba(236, 236, 236, 0.4);
   background-size: contain;
+  transition: transform .7s ease-in-out;
 }
 .compass::before {
     position: absolute;
@@ -442,7 +455,6 @@ input:focus {
     display: block;
     border-radius: 100%;
     border-color: #ffffff6e;
-    box-shadow: inset 1px 0px 15px 0px #2b363b5e;
   }
   .direction p {
       text-align: center;
@@ -506,13 +518,17 @@ input:focus {
     #nw.arrow { transform: rotate(-45deg); }
     #nnw.arrow { transform: rotate(-24.5deg);}
 
+    
+.rect5:hover .compass{
+  transform: rotate(360deg);
+}
+
 #wind-tile{
   align-items: center;
-  border-radius: 100%;
-  width:145px;
-  box-shadow: none;
+  width:170px;
   margin-top: 0;
   background: rgba(236, 249, 250, 0.4);
+  
 }
 
 #wind-data{

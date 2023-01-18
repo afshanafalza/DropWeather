@@ -475,17 +475,15 @@ const displayConditions = async (locKeyVal) => {
 
     sunTile.innerHTML = `<div class="title"> Sunset and Sunrise </div>
     <div class="condition-data">
-        <div class="current-value">
-            <p class="current-text"> 
-                Sunset: ${sunsetTime}
-                <br>
-                Sunrise: ${sunriseTime}
-            </p>
-        </div>
         <div class="current-color">
-            sun-icon
+            <img src="assets/conditicons/sunset.png">
         </div>
-    </div>`;
+    </div>
+    <p class="current-text"> 
+        Sunset: ${sunsetTime}
+        <br>
+        Sunrise: ${sunriseTime}
+    </p>`;
 
 }
 
