@@ -397,7 +397,8 @@
         },
         {
           "src": "ios/80.png",
-          "sizes": "80x80"
+          "sizes": "80x80",
+          "purpose": "any"
         },
         {
           "src": "ios/87.png",
@@ -472,7 +473,7 @@
       {
         "src": "assets/screenshots/screenshot1.png",
         "type": "image/png",
-        "sizes": "540x720",
+        "sizes": "1535x883",
         "form_factor": "wide"
       }
     ]
