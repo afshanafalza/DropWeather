@@ -117,6 +117,9 @@ const getLocationData = async () => {
         gmtOffSets.push(gmtOffSet);
     }
 
+    locTiles.style.opacity = 1;
+    locTiles.style.top = "150px";
+
     console.log(locIDs);
     clickLocationTiles(locIDs);
 }

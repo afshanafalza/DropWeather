@@ -402,7 +402,7 @@ input:focus {
 
 .rect7 {
   cursor: pointer;
-  transition: color .25s ease, transform .18s;
+  transition: 1s ease, transform .18s;
 }
 
 .rect7:hover {

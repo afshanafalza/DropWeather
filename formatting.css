@@ -96,6 +96,7 @@
     padding-left: 68px;
     gap: 70px;
     overflow: auto;
+    position: relative;
 }
 
 .flex7 {
@@ -103,6 +104,10 @@
     flex-direction: column;
     align-items: center;
     gap: 58px;
+    opacity: 0;
+    transition: all 0.5s ease; 
+    position: absolute;
+    top: 300px;
 }
 
 .current-value{

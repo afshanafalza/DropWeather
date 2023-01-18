@@ -10,17 +10,19 @@ let inputField = document.getElementById("search-box");
 let locValue;
 enterSearchButton.style.visibility = 'hidden';
 inputField.style.width = 0;
+inputField.style.opacity = 1;
 console.log(searchBarArea);
 
 // Once you click the circle search icon
 openSearchButton.addEventListener('click', () => {
     enterSearchButton.style.visibility = 'visible';
     inputField.style.visibility = 'visible';
+    inputField.style.opacity = 1;
     inputField.style.width = '200px'; // Change width so animation will appear
 
     setTimeout(function () {
-        document.getElementById("selected-cities").remove();
-        document.getElementById("open-search-button").remove();
+        document.getElementById("selected-cities").style.visibility= 'hidden';
+        document.getElementById("open-search-button").style.visibility= 'hidden';
     }, 1000); // Wait 1 second for animation to finish before removing text
 
     // Submitting whatever you have in input field
@@ -28,6 +30,12 @@ openSearchButton.addEventListener('click', () => {
         if(inputField.value!=``) {
             locValue = makeValidString(inputField.value);
             inputField.value = ``;
+            enterSearchButton.style.visibility = 'hidden';
+            inputField.style.visibility = 'hidden';
+            document.getElementById("selected-cities").style.visibility= 'visible';
+            document.getElementById("open-search-button").style.visibility= 'visible';
+            inputField.style.opacity = 0;
+            inputField.style.width = '0px';
             getLocationData();    
         }
     });
@@ -37,6 +45,12 @@ openSearchButton.addEventListener('click', () => {
         if(e.keyCode == 13 && inputField.value!=``) {
             locValue = makeValidString(inputField.value);
             inputField.value = ``;
+            enterSearchButton.style.visibility = 'hidden';
+            inputField.style.visibility = 'hidden';
+            inputField.style.opacity = 0;
+            inputField.style.width = '0px';
+            document.getElementById("selected-cities").style.visibility= 'visible';
+            document.getElementById("open-search-button").style.visibility= 'visible';
             getLocationData();
         }
     });
