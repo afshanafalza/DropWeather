@@ -1,4 +1,6 @@
 console.log("weather info");
+ 
+var apiKey = prompt("Put in your API key <3");
 
 // Location Variables
 let loc;
