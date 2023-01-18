@@ -454,11 +454,11 @@
         }
       ],
     "id": "/?source=pwa",
-    "start_url": "/DropWeather/?source=pwa",
-    "background_color": "#3367D6",
+    "start_url": "https://afshanafalza.github.io/DropWeather/",
+    "background_color": "#aecedd",
     "display": "standalone",
-    "scope": "/DropWeather",
-    "theme_color": "#3367D6",
+    "scope": "https://afshanafalza.github.io/DropWeather/",
+    "theme_color": "#aecedd",
     "shortcuts": [
       {
         "name": "Home",
