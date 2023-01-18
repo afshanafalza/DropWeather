@@ -14,6 +14,10 @@ setInterval(function() {
     ampm = (parseInt(hours / 12 % 2)) == 0 ? 'AM' : 'PM'; // Fix AM/PM according to current time
     hours %= 12; // Hours are from 0 to 11
     hours = hours == 0 ? 12 : hours; // If hour is 0, change to 12
+    if(hours < 0){
+        hours += 12;
+        ampm = ampm == 'AM' ? 'PM' : 'AM';
+    }
     minutes = minutes < 10 ? '0' + minutes : minutes; // Add 0 to minutes if between 0 and 9
 
 
