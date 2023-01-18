@@ -13,14 +13,14 @@ body, html {
 }
 
 .time {
-    width: 190px;
+    width: 175px;
     height: 56px;
 
     font-style: normal;
     font-weight: 700;
     font-size: 36px;
     line-height: 43px;
-    text-align: center;
+    text-align: left;
     letter-spacing: 0.1em;
     
 }
@@ -34,9 +34,9 @@ body, html {
 .location{
     font-size: 0.5em;
     text-align: left;
-    padding-left: 13px;
     font-weight: 500;
     width: 400px;
+    letter-spacing: 0.6px;
 }
 
 
@@ -86,7 +86,7 @@ body, html {
 }
 
 #highLow {
-  text-align:center;
+  text-align:left;
   display: relative;
 }
 

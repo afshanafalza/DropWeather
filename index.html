@@ -152,19 +152,17 @@
                 <div class="flex4">
                     <!-- UV Index and Air Quality Section -->
                     <div class="flex5">
-                        <div class="rect5" id="UV-tile">
-                            <div class="title"> UV Index </div>
-                            <div class="condition-data">
-                                <div class="current-color">
-                                    <img src="assets/conditicons/high.png">
+                        <div id="wind-square">
+                            <div class="rect5" id="wind-tile">
+                                <div class="condition-data" id="wind-data">
+                                    <div class="compass">
+                                        <div class="direction">
+                                          <p> 8 <span>mph</span></p>
+                                        </div>
+                                        <div class="arrow" id="ne"></div>
+                                    </div>
                                 </div>
-                                <div class="current-value">
-                                    8
-                                    <br>
-                                    High
-                                </div>
-                                <p class="current-text" id="uvindex"> UV INDEX IS HIGH!!! WEAR UR SUNSCREEN I PROMISE!!</p>
-                             </div>
+                            </div>  
                         </div>
                         <div class="rect5" id="air-tile">
                             <div class="title"> Air Quality </div>
@@ -179,35 +177,6 @@
                                 </div>
                                 <p class="current-text"> sufficient for outdoor exercise and those sensitive</p>
                              </div>
-                        </div>
-                        <div class="rect5" id="rain-tile">
-                            <div class="title"> Rainfall </div>
-                            <div class="condition-data">
-                                <div class="current-color">
-                                    <img id="drops" src="assets/conditicons/drops.png">
-                                </div>
-                                <div class="current-value" id="raininch">
-                                    2"
-                                    <br>
-                                    of rain
-                                </div>
-                                <p class="current-text"> There have been X inches of rain recorded at your location over the past day.</p>
-                             </div>
-                        </div>
-                    </div>
-                    <!-- Rainfall and Wind -->
-                    <div class="flex5">
-                        <div id="wind-square">
-                            <div class="rect5" id="wind-tile">
-                                <div class="condition-data" id="wind-data">
-                                    <div class="compass">
-                                        <div class="direction">
-                                          <p> 8 <span>mph</span></p>
-                                        </div>
-                                        <div class="arrow" id="ne"></div>
-                                    </div>
-                                </div>
-                            </div>  
                         </div>
                         <div class="rect5" id="sun-tile">
                             <div class="title"> Sunset and Sunrise </div>
@@ -224,6 +193,37 @@
                             <p class="current-text"> 
                                 Curfew? Plans? Make sure to get home on time
                             </p>
+                        </div>
+                    </div>
+                    <!-- Rainfall and Wind -->
+                    <div class="flex5">
+                        <div class="rect5" id="rain-tile">
+                            <div class="title"> Rainfall </div>
+                            <div class="condition-data">
+                                <div class="current-color">
+                                    <img id="drops" src="assets/conditicons/drops.png">
+                                </div>
+                                <div class="current-value" id="raininch">
+                                    2"
+                                    <br>
+                                    of rain
+                                </div>
+                                <p class="current-text"> There have been X inches of rain recorded at your location over the past day.</p>
+                             </div>
+                        </div>
+                        <div class="rect5" id="UV-tile">
+                            <div class="title"> UV Index </div>
+                            <div class="condition-data">
+                                <div class="current-color">
+                                    <img src="assets/conditicons/high.png">
+                                </div>
+                                <div class="current-value">
+                                    8
+                                    <br>
+                                    High
+                                </div>
+                                <p class="current-text" id="uvindex"> UV INDEX IS HIGH!!! WEAR UR SUNSCREEN I PROMISE!!</p>
+                             </div>
                         </div>
                         <div class="rect5">
                             <div class="title"> Visibility </div>
