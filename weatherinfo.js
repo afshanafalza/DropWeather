@@ -165,7 +165,6 @@ const getForecastData = async (locKeyVal) => {
             let lowTemp = data["DailyForecasts"][i]["Temperature"]["Minimum"]["Value"];
 
             // Updating the today tile with data
-            if(iconNumber>=1 && iconNumber<=23) {
                 dayTile.innerHTML = `<div class="title"> ${dayOTW} </div>
                 <div class="info">
                     <table>
@@ -184,27 +183,6 @@ const getForecastData = async (locKeyVal) => {
                     </table>
                 </div>
                 <div class="icon"> <img src="assets/jennicons/${iconNumber}-s.png"/> </div>`;   
-            }
-            else {
-                dayTile.innerHTML = `<div class="title"> ${dayOTW} </div>
-                <div class="info">
-                    <table>
-                        <tr>
-                            <td><div class="temp"> ${temperature}°F </div></td>
-                        </tr>
-                        <tr>
-                            <td><div class="condition"> ${condition} </div></td>
-                        </tr>
-                        <tr>
-                            <td id="highLow">
-                                <div class="high"> ↑ ${highTemp}°F </div>
-                                <div class="low"> ↓ ${lowTemp}°F </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="icon"> <img src="assets/accuiconsnew/${iconNumber}-s.png"/> </div>`;   
-            }
             
             
             // Changing the background GIF
@@ -229,14 +207,8 @@ const getForecastData = async (locKeyVal) => {
         }
         else {
             //url("assets/backgrounds/morning-sunny.gif")
-            if(iconNumber>=1 && iconNumber<=23) {
                 dayTile.innerHTML = `<div class="title"> ${dayOTW} </div>
                 <div class="icon"> <img src="assets/jennicons/${iconNumber}-s.png"/> </div><div class="temp"> ${temperature}°F </div>`;        
-            }
-            else {
-                dayTile.innerHTML = `<div class="title"> ${dayOTW} </div>
-                <div class="icon"> <img src="assets/accuiconsnew/${iconNumber}-s.png"/> </div><div class="temp"> ${temperature}°F </div>`;        
-            }
         }
     }
 }
@@ -285,36 +257,19 @@ const createTable = async (locKeyVal) => {
 
         // Inserting values into table
         if(i!=data.length-1) {
-            if(iconNumber>=1 && iconNumber<=23) { // INSERT JEN'S ICONS HERE
-                hourlyTable.innerHTML = hourlyTable.innerHTML+`<tr>
-                <td>${currHour}</td>
-                <td><img src="assets/accuiconsnew/${iconNumber}-s.png"/></td>
-                <td>${hourlyTemp}°F</td>
-                </tr>`
-            }
-            else {
-                hourlyTable.innerHTML = hourlyTable.innerHTML+`<tr>
-                <td>${currHour}</td>
-                <td><img src="assets/accuiconsnew/${iconNumber}-s.png"/></td>
-                <td>${hourlyTemp}°F</td>
-                </tr>`
-            }
+            hourlyTable.innerHTML = hourlyTable.innerHTML+`<tr>
+            <td>${currHour}</td>
+            <td><img src="assets/jennicons/${iconNumber}-s.png"/></td>
+            <td>${hourlyTemp}°F</td>
+            </tr>`
+            
         }
         else {
-            if(iconNumber>=1 && iconNumber<=23) { // INSERT JEN'S ICONS HERE
-                hourlyTable.innerHTML = hourlyTable.innerHTML+`<tr>
-                <td>${currHour}</td>
-                <td><img src="assets/accuiconsnew/${iconNumber}-s.png"/></td>
-                <td>${hourlyTemp}°F</td>
-                </tr>`
-            }
-            else {
-                hourlyTable.innerHTML = hourlyTable.innerHTML+`<tr class="last-table">
-                <td>${currHour}</td>
-                <td><img src="assets/accuiconsnew/${iconNumber}-s.png"/></td>
-                <td>${hourlyTemp}°F</td>
-                </tr>`    
-            }
+            hourlyTable.innerHTML = hourlyTable.innerHTML+`<tr class="last-table">
+            <td>${currHour}</td>
+            <td><img src="assets/jennicons/${iconNumber}-s.png"/></td>
+            <td>${hourlyTemp}°F</td>
+            </tr>`    
         }
     }
 }
