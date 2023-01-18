@@ -21,7 +21,6 @@ openSearchButton.addEventListener('click', () => {
     inputField.style.visibility = 'visible';
     inputField.style.opacity = 1;
     inputField.style.width = '200px'; // Change width so animation will appear
-    searchBarFlex.style.width = '500px';
 
     setTimeout(function () {
         document.getElementById("selected-cities").style.visibility= 'hidden';
@@ -39,6 +38,7 @@ openSearchButton.addEventListener('click', () => {
             document.getElementById("open-search-button").style.visibility= 'visible';
             inputField.style.opacity = 0;
             inputField.style.width = '0px';
+            searchBarFlex.style.width = '500px';
             getLocationData();    
         }
     });
@@ -52,6 +52,7 @@ openSearchButton.addEventListener('click', () => {
             inputField.style.visibility = 'hidden';
             inputField.style.opacity = 0;
             inputField.style.width = '0px';
+            searchBarFlex.style.width = '500px';
             document.getElementById("selected-cities").style.visibility= 'visible';
             document.getElementById("open-search-button").style.visibility= 'visible';
             getLocationData();
