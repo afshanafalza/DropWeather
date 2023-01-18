@@ -55,12 +55,12 @@ let dayMap = new Map([
 // Auto Location stuff
 var userZip = 0
 fetch(
-  "http://ip-api.com/json/?fields=city,zip"
+  "https://ipapi.co/json/"
 )
 .then(response => response.json())
 .then((data) => {
-    console.log("the zip from API is " + data.zip)
-    userZip = data.zip
+    console.log("the zip from API is " + data.postal)
+    userZip = data.postal
     getDefaultLocationData();
 })
 
