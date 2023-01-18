@@ -57,8 +57,9 @@
 
 .flex2 {
     display: flex;
-    justify-content: space-between;
-    gap: 30px;
+    justify-content: flex-start;
+    gap: 40px;
+    flex-direction: row;
 }
 
 .flex3 {
