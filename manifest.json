@@ -453,17 +453,17 @@
         }
       ],
     "id": "/?source=pwa",
-    "start_url": "/?source=pwa",
+    "start_url": "/DropWeather/?source=pwa",
     "background_color": "#3367D6",
     "display": "standalone",
-    "scope": "/",
+    "scope": "/DropWeather",
     "theme_color": "#3367D6",
     "shortcuts": [
       {
         "name": "Home",
         "short_name": "Home",
         "description": "View weather information for today",
-        "url": "/",
+        "url": "/DropWeather",
         "icons": [{ "src": "ios/192.png", "sizes": "192x192" }]
       }
     ],
