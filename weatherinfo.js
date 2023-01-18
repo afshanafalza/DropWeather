@@ -30,6 +30,9 @@ let defaultStateName;
 // Hourly Table Variables
 let hourlyTable = document.getElementById("hourly-table");
 
+// Search Box Container
+let searchBarFlex = document.getElementById("search-bar-flex");
+
 // Weather Condition Variables
 let UVTile = document.getElementById("UV-tile");
 let airTile = document.getElementById("air-tile");
@@ -118,7 +121,7 @@ const getLocationData = async () => {
     }
 
     locTiles.style.opacity = 1;
-    locTiles.style.top = "150px";
+    locTiles.style.right = "auto";
 
     console.log(locIDs);
     clickLocationTiles(locIDs);
@@ -250,6 +253,7 @@ const clickLocationTiles = async (idNames) => {
             console.log("this is selected: "+selectedLocKey);
             locationDisplayArea.innerHTML = `<img src="assets/location.png">${locNames[i]}, ${stateNames[i]}`;
             gmt = gmtOffSets[i];
+            searchBarFlex.style.width = '0px';
             console.log(gmt);
             // Call function where we update weather conditions  
             getForecastData(selectedLocKey);  

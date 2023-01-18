@@ -7,7 +7,9 @@ let openSearchButton = document.getElementById("open-search-button");
 let searchBarArea = document.getElementById("search-bar-area");
 let enterSearchButton = document.getElementById("enter-search-button");
 let inputField = document.getElementById("search-box");
+let searchBoxFlex = document.getElementById("search-bar-flex");
 let locValue;
+//searchBarArea.style.width = 0;
 enterSearchButton.style.visibility = 'hidden';
 inputField.style.width = 0;
 inputField.style.opacity = 1;
@@ -19,6 +21,7 @@ openSearchButton.addEventListener('click', () => {
     inputField.style.visibility = 'visible';
     inputField.style.opacity = 1;
     inputField.style.width = '200px'; // Change width so animation will appear
+    searchBarFlex.style.width = '400px';
 
     setTimeout(function () {
         document.getElementById("selected-cities").style.visibility= 'hidden';
