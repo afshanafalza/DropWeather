@@ -95,8 +95,10 @@
     padding-right: 58px;
     padding-left: 68px;
     gap: 70px;
-    overflow: auto;
     position: relative;
+    overflow: scroll;
+    height: 100%;
+    overflow-x: hidden;
 }
 
 .flex7 {
@@ -107,7 +109,8 @@
     opacity: 0;
     transition: all 0.5s ease; 
     position: absolute;
-    top: 300px;
+    top: 45px;
+    padding: 5px
 }
 
 .current-value{
