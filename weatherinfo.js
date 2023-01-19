@@ -114,8 +114,8 @@ const getLocationData = async () => {
         console.log(locKey);
 
         // Displaying location tiles
-        locTiles.innerHTML = locTiles.innerHTML + `<div class="rect7 box-night" id="${idName}">
-        <div class="title title-night"> ${locName}, ${stateName} </div>
+        locTiles.innerHTML = locTiles.innerHTML + `<div class="rect7" id="${idName}">
+        <div class="title"> ${locName}, ${stateName} </div>
         </div>`
         
         // Pushing each ID into an array
@@ -171,7 +171,7 @@ const getForecastData = async (locKeyVal) => {
             let lowTemp = data["DailyForecasts"][i]["Temperature"]["Minimum"]["Value"];
 
             // Updating the today tile with data
-                dayTile.innerHTML = `<div class="title title-night" id="title0"> ${dayOTW} </div>
+                dayTile.innerHTML = `<div class="title" id="title0"> ${dayOTW} </div>
                 <div class="info">
                     <table>
                         <tr>
@@ -213,7 +213,7 @@ const getForecastData = async (locKeyVal) => {
         }
         else {
             //url("assets/backgrounds/morning-sunny.gif")
-                dayTile.innerHTML = `<div class="title title-night"> ${dayOTW} </div>
+                dayTile.innerHTML = `<div class="title"> ${dayOTW} </div>
                 <div class="icon"> <img src="assets/jennicons/${iconNumber}-s.png"/> </div><div class="temp"> ${temperature}°F </div>`;        
         }
     }
@@ -225,7 +225,7 @@ const clickLocationTiles = async (idNames) => {
         let locationTile = document.getElementById(idNames[i]);
         locationTile.addEventListener('click', () => {
             locTiles.innerHTML = `<div class="rect7 box-night" id="${idNames[i]}">
-            <div class="title title-night"> ${locNames[i]}, ${stateNames[i]} </div>
+            <div class="title"> ${locNames[i]}, ${stateNames[i]} </div>
             </div>`
             selectedLocKey = locKeys[i];
             console.log("this is selected: "+selectedLocKey);
@@ -362,7 +362,7 @@ const displayConditions = async (locKeyVal) => {
     ]);
 
     // Displaying UV Information
-    UVTile.innerHTML = `<div class="title title-night"> UV Index </div>
+    UVTile.innerHTML = `<div class="title"> UV Index </div>
     <div class="condition-data">
         <div class="current-color">
             <img src="assets/conditicons/${iconMap.get(UVCat)}"/>
@@ -389,7 +389,7 @@ const displayConditions = async (locKeyVal) => {
     ]);
 
     // Displaying Air Quality Information
-    airTile.innerHTML = `<div class="title title-night"> Air Quality </div>
+    airTile.innerHTML = `<div class="title"> Air Quality </div>
     <div class="condition-data">
         <div class="current-color">
             <img src="assets/conditicons/${iconMap.get(airCat)}"/>
@@ -407,7 +407,7 @@ const displayConditions = async (locKeyVal) => {
     let rainIn = data["DailyForecasts"][0]["Day"]["Rain"]["Value"];
 
     // Displaying Rain Fall Information
-    rainTile.innerHTML = `<div class="title title-night"> Rainfall </div>
+    rainTile.innerHTML = `<div class="title"> Rainfall </div>
     <div class="condition-data">
         <div class="current-color">
             <img id="drops" src="assets/conditicons/drops.png">
@@ -445,7 +445,7 @@ const displayConditions = async (locKeyVal) => {
     sunsetTime = convertTime2(data["DailyForecasts"][0]["Sun"]["Set"]);
     sunriseTime = convertTime2(data["DailyForecasts"][0]["Sun"]["Rise"]);
 
-    sunTile.innerHTML = `<div class="title title-night"> Sunset and Sunrise </div>
+    sunTile.innerHTML = `<div class="title"> Sunset and Sunrise </div>
     <div class="condition-data">
         <div class="current-color">
             <img src="assets/conditicons/sunset.png">
