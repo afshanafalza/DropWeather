@@ -37,7 +37,8 @@ let searchBarFlex = document.getElementById("search-bar-flex");
 let UVTile = document.getElementById("UV-tile");
 let airTile = document.getElementById("air-tile");
 let rainTile = document.getElementById("rain-tile");
-let windTile = document.getElementById("wind-direction");
+let windDirection = document.getElementById("wind-direction");
+let windTile = document.getElementById("wind-tile");
 let sunTile = document.getElementById("sun-tile");
 
 // Sunset Sunrise Variables
@@ -436,7 +437,7 @@ const displayConditions = async (locKeyVal) => {
     //     </div>
     // </div>`;
 
-    windTile.innerHTML = `<p> ${windVal} <span>mph</span></p>`;
+    windDirection.innerHTML = `<p> ${windVal} <span>mph</span></p>`;
     document.getElementsByClassName('arrow')[0].id = windDir; //change ID of arrow class
 
     // SUNSET AND SUNRISE
@@ -473,6 +474,7 @@ const displayMode = async (locKeyVal) => {
     let todayTitle = document.querySelector("#title0");
     let blurbg = document.querySelector(".blur-bg");
     let searchArea = document.querySelector(".flex6");
+    let compass = document.getElementById("compass");
 
     console.log(blurbg);
 
@@ -491,7 +493,9 @@ const displayMode = async (locKeyVal) => {
         todayTitle.style.color = `#FFFFFF`;
         blurbg.style.backgroundColor = `rgba(102, 100, 127, 0.78)`;
         windTile.style.background = `rgb(148, 148, 180, 0.6)`;
-        windTile.style.color = `#FFFFFF`;
+        windDirection.style.color = `#FFFFFF`;
+        compass.style.background = "url(assets/gaugeStyles/gagueWhite.png), rgba(236, 236, 236, 0.4)";
+        compass.style.backgroundSize = "contain";
         searchArea.style.background = `rgba(117, 117, 152, 0.5)`;
         searchArea.style.color = `#FFFFFF`;
     }
