@@ -224,7 +224,7 @@ const clickLocationTiles = async (idNames) => {
     for(let i=0; i<idNames.length; i++) {
         let locationTile = document.getElementById(idNames[i]);
         locationTile.addEventListener('click', () => {
-            locTiles.innerHTML = `<div class="rect7 box-night" id="${idNames[i]}">
+            locTiles.innerHTML = `<div class="rect7" id="${idNames[i]}">
             <div class="title"> ${locNames[i]}, ${stateNames[i]} </div>
             </div>`
             selectedLocKey = locKeys[i];
