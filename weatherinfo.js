@@ -41,9 +41,10 @@ let windDirection = document.getElementById("wind-direction");
 let windTile = document.getElementById("wind-tile");
 let sunTile = document.getElementById("sun-tile");
 
-// Sunset Sunrise Variables
+// Day Mode Variables
 let sunsetTime;
 let sunriseTime;
+let isDayTime;
 
 // Mapping the days
 let dayMap = new Map([
@@ -114,9 +115,16 @@ const getLocationData = async () => {
         console.log(locKey);
 
         // Displaying location tiles
-        locTiles.innerHTML = locTiles.innerHTML + `<div class="rect7" id="${idName}">
-        <div class="title"> ${locName}, ${stateName} </div>
-        </div>`
+        if(isDayTime) {
+            locTiles.innerHTML = locTiles.innerHTML + `<div class="rect7" id="${idName}">
+            <div class="title"> ${locName}, ${stateName} </div>
+            </div>`    
+        }
+        else {
+            locTiles.innerHTML = locTiles.innerHTML + `<div class="rect7 box-night" id="${idName}">
+            <div class="title title-night"> ${locName}, ${stateName} </div>
+            </div>`    
+        }
         
         // Pushing each ID into an array
         locIDs.push(idName);
@@ -224,9 +232,16 @@ const clickLocationTiles = async (idNames) => {
     for(let i=0; i<idNames.length; i++) {
         let locationTile = document.getElementById(idNames[i]);
         locationTile.addEventListener('click', () => {
-            locTiles.innerHTML = `<div class="rect7" id="${idNames[i]}">
-            <div class="title"> ${locNames[i]}, ${stateNames[i]} </div>
-            </div>`
+            if(isDayTime) {
+                locTiles.innerHTML = `<div class="rect7" id="${idNames[i]}">
+                <div class="title"> ${locNames[i]}, ${stateNames[i]} </div>
+                </div>`    
+            }
+            else {
+                locTiles.innerHTML = `<div class="rect7 box-night" id="${idNames[i]}">
+                <div class="title title-night"> ${locNames[i]}, ${stateNames[i]} </div>
+                </div>`    
+            }
             selectedLocKey = locKeys[i];
             console.log("this is selected: "+selectedLocKey);
             locationDisplayArea.innerHTML = `<img src="assets/location.png">${locNames[i]}, ${stateNames[i]}`;
@@ -237,6 +252,7 @@ const clickLocationTiles = async (idNames) => {
             getForecastData(selectedLocKey);  
             createTable(selectedLocKey);
             displayConditions(selectedLocKey);
+            displayMode(selectedLocKey);
         })
     }
 }
@@ -496,10 +512,11 @@ const displayMode = async (locKeyVal) => {
         windDirection.style.color = `#FFFFFF`;
         compass.style.background = "url(assets/gaugeStyles/gagueWhite.png), rgba(236, 236, 236, 0.4)";
         compass.style.backgroundSize = "contain";
-        searchArea.style.background = `rgba(117, 117, 152, 0.5)`;
+        searchArea.style.background = `rgba(152,148,180,0.75)`;
         searchArea.style.color = `#FFFFFF`;
     }
 }
+
 
 
 // function timeOfDay() {
