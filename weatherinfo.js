@@ -492,7 +492,7 @@ const displayMode = async (locKeyVal) => {
         todayTitle.style.background = `rgba(137, 147, 245, 0.8)`;
         todayTitle.style.color = `#FFFFFF`;
         blurbg.style.backgroundColor = `rgba(102, 100, 127, 0.78)`;
-        windTile.style.background = `rgb(148, 148, 180, 0.6)`;
+        windTile.style.background = `rgba(166, 163, 207, 0.71)`;
         windDirection.style.color = `#FFFFFF`;
         compass.style.background = "url(assets/gaugeStyles/gagueWhite.png), rgba(236, 236, 236, 0.4)";
         compass.style.backgroundSize = "contain";
