@@ -552,3 +552,13 @@ input:focus {
 #wind-data{
   margin: 0;
 }
+
+.title-night {
+  background: rgba(166, 163, 207, 0.71);
+  color: #FFFFFF;
+}
+
+.box-night {
+  background: rgba(165, 164, 199, 0.72);
+  color: #FFFFFF;
+}

@@ -40,6 +40,10 @@ let rainTile = document.getElementById("rain-tile");
 let windTile = document.getElementById("wind-direction");
 let sunTile = document.getElementById("sun-tile");
 
+// Sunset Sunrise Variables
+let sunsetTime;
+let sunriseTime;
+
 // Mapping the days
 let dayMap = new Map([
     [0, "Sunday"],
@@ -80,6 +84,7 @@ const getDefaultLocationData = async () => {
     getForecastData(defaultLoc);
     createTable(defaultLoc);
     displayConditions(defaultLoc);
+    displayMode(defaultLoc);
 }
 
 
@@ -108,8 +113,8 @@ const getLocationData = async () => {
         console.log(locKey);
 
         // Displaying location tiles
-        locTiles.innerHTML = locTiles.innerHTML + `<div class="rect7" id="${idName}">
-        <div class="title"> ${locName}, ${stateName} </div>
+        locTiles.innerHTML = locTiles.innerHTML + `<div class="rect7 box-night" id="${idName}">
+        <div class="title title-night"> ${locName}, ${stateName} </div>
         </div>`
         
         // Pushing each ID into an array
@@ -165,7 +170,7 @@ const getForecastData = async (locKeyVal) => {
             let lowTemp = data["DailyForecasts"][i]["Temperature"]["Minimum"]["Value"];
 
             // Updating the today tile with data
-                dayTile.innerHTML = `<div class="title"> ${dayOTW} </div>
+                dayTile.innerHTML = `<div class="title title-night" id="title0"> ${dayOTW} </div>
                 <div class="info">
                     <table>
                         <tr>
@@ -207,7 +212,7 @@ const getForecastData = async (locKeyVal) => {
         }
         else {
             //url("assets/backgrounds/morning-sunny.gif")
-                dayTile.innerHTML = `<div class="title"> ${dayOTW} </div>
+                dayTile.innerHTML = `<div class="title title-night"> ${dayOTW} </div>
                 <div class="icon"> <img src="assets/jennicons/${iconNumber}-s.png"/> </div><div class="temp"> ${temperature}°F </div>`;        
         }
     }
@@ -218,8 +223,8 @@ const clickLocationTiles = async (idNames) => {
     for(let i=0; i<idNames.length; i++) {
         let locationTile = document.getElementById(idNames[i]);
         locationTile.addEventListener('click', () => {
-            locTiles.innerHTML = `<div class="rect7" id="${idNames[i]}">
-            <div class="title"> ${locNames[i]}, ${stateNames[i]} </div>
+            locTiles.innerHTML = `<div class="rect7 box-night" id="${idNames[i]}">
+            <div class="title title-night"> ${locNames[i]}, ${stateNames[i]} </div>
             </div>`
             selectedLocKey = locKeys[i];
             console.log("this is selected: "+selectedLocKey);
@@ -356,7 +361,7 @@ const displayConditions = async (locKeyVal) => {
     ]);
 
     // Displaying UV Information
-    UVTile.innerHTML = `<div class="title"> UV Index </div>
+    UVTile.innerHTML = `<div class="title title-night"> UV Index </div>
     <div class="condition-data">
         <div class="current-color">
             <img src="assets/conditicons/${iconMap.get(UVCat)}"/>
@@ -383,7 +388,7 @@ const displayConditions = async (locKeyVal) => {
     ]);
 
     // Displaying Air Quality Information
-    airTile.innerHTML = `<div class="title"> Air Quality </div>
+    airTile.innerHTML = `<div class="title title-night"> Air Quality </div>
     <div class="condition-data">
         <div class="current-color">
             <img src="assets/conditicons/${iconMap.get(airCat)}"/>
@@ -401,7 +406,7 @@ const displayConditions = async (locKeyVal) => {
     let rainIn = data["DailyForecasts"][0]["Day"]["Rain"]["Value"];
 
     // Displaying Rain Fall Information
-    rainTile.innerHTML = `<div class="title"> Rainfall </div>
+    rainTile.innerHTML = `<div class="title title-night"> Rainfall </div>
     <div class="condition-data">
         <div class="current-color">
             <img id="drops" src="assets/conditicons/drops.png">
@@ -436,10 +441,10 @@ const displayConditions = async (locKeyVal) => {
 
     // SUNSET AND SUNRISE
     // Sunset and Sunrise Variables
-    let sunsetTime = convertTime2(data["DailyForecasts"][0]["Sun"]["Set"]);
-    let sunriseTime = convertTime2(data["DailyForecasts"][0]["Sun"]["Rise"]);
+    sunsetTime = convertTime2(data["DailyForecasts"][0]["Sun"]["Set"]);
+    sunriseTime = convertTime2(data["DailyForecasts"][0]["Sun"]["Rise"]);
 
-    sunTile.innerHTML = `<div class="title"> Sunset and Sunrise </div>
+    sunTile.innerHTML = `<div class="title title-night"> Sunset and Sunrise </div>
     <div class="condition-data">
         <div class="current-color">
             <img src="assets/conditicons/sunset.png">
@@ -456,3 +461,87 @@ const displayConditions = async (locKeyVal) => {
 
 }
 
+const displayMode = async (locKeyVal) => {
+    const response = await fetch(`http://dataservice.accuweather.com/currentconditions/v1/${locKeyVal}?apikey=${apiKey}`);
+    const data = await response.json();
+    let isDayTime = data[0]["IsDayTime"];
+
+    // Display tiles
+    let titleHeader = document.querySelectorAll(".title");
+    let box = document.querySelectorAll(".box");
+    let todayBox = document.querySelector("#day0");
+    let todayTitle = document.querySelector("#title0");
+    let blurbg = document.querySelector(".blur-bg");
+    let searchArea = document.querySelector(".flex6");
+
+    console.log(blurbg);
+
+    console.log(todayTitle);
+
+    if(isDayTime==false) {
+        for(let i=0; i<titleHeader.length; i++) {
+            titleHeader[i].classList.add("title-night");
+        }
+        for(let i=0; i<box.length; i++) {
+            box[i].classList.add("box-night");
+        }
+        todayBox.style.background = `rgba(186, 192, 252, 0.7)`;
+        todayBox.style.color = `#FFFFFF`;
+        todayTitle.style.background = `rgba(137, 147, 245, 0.8)`;
+        todayTitle.style.color = `#FFFFFF`;
+        blurbg.style.backgroundColor = `rgba(102, 100, 127, 0.78)`;
+        windTile.style.background = `rgb(148, 148, 180, 0.6)`;
+        windTile.style.color = `#FFFFFF`;
+        searchArea.style.background = `rgba(117, 117, 152, 0.5)`;
+        searchArea.style.color = `#FFFFFF`;
+    }
+}
+
+
+// function timeOfDay() {
+//     // console.log("the time now is "+timeNow);
+//     // console.log("sunset time is "+sunsetTime);
+//     // console.log("sunrise time is "+sunriseTime);
+
+//     // Now Time
+//     let currHourInt = getHour(timeNow);
+//     let currMinInt = getMinute(timeNow);
+//     let currAMorPM = getAMorPM(timeNow);
+//     let currTotalMins;
+
+//     // Sunset Time
+//     let setHourInt = getHour(sunsetTime);
+//     let setMinInt = getMinute(sunsetTime);
+//     let setAMorPM = getAMorPM(sunsetTime);
+//     let setTotalMins;
+
+//     // Sunrise Time
+//     let riseHourInt = getHour(sunriseTime);
+//     let riseMinInt = getMinute(sunriseTime);
+//     let riseAMorPM = getAMorPM(sunriseTime);
+//     let riseTotalMins;
+
+//     // find the offset, if its <30 then sunrise/sunset
+
+//     // console.log(currHourInt+" "+currMinInt+" "+currAMorPM);
+//     // console.log(setHourInt+" "+setMinInt+" "+setAMorPM);
+//     // console.log(riseHourInt+" "+riseMinInt+" "+riseAMorPM);
+
+// }
+
+// function getHour(timeStamp) {
+//     return parseInt(timeStamp.substring(0, timeStamp.indexOf(':')));
+// }
+
+// function getMinute(timeStamp) {
+//     return parseInt(timeStamp.substring(timeStamp.indexOf(':')+1, timeStamp.indexOf(':')+3));
+// }
+
+// function getAMorPM(timeStamp) {
+//     return timeStamp.substring(timeStamp.indexOf(':')+3);
+// }
+
+// function subtractTime() {
+//     // Curr Time: 6:07 PM
+//     // Sunset Time: 4:46 PM
+// }

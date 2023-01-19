@@ -1,4 +1,5 @@
 var clock = document.getElementById('clock');
+let timeNow;
 let hours;
 
 setInterval(function() {
@@ -20,6 +21,7 @@ setInterval(function() {
     }
     minutes = minutes < 10 ? '0' + minutes : minutes; // Add 0 to minutes if between 0 and 9
 
-
+    timeNow = hours + ":" + minutes + ampm;
     clock.innerHTML = hours + ":" + minutes + "" + `<div class="ampm">`+ ampm + `</div>`;
+    // timeOfDay();
 }, 1000);
