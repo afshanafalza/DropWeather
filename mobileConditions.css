@@ -77,6 +77,10 @@
         display: none; /* inform grid of 2x2 */
     }
 
+    .topBar{
+        width: fit-content;
+    }
+
 }
 
 
