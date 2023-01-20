@@ -505,7 +505,7 @@ const displayConditions = async (locKeyVal) => {
 const displayMode = async (locKeyVal) => {
     const response = await fetch(`http://dataservice.accuweather.com/currentconditions/v1/${locKeyVal}?apikey=${apiKey}`);
     const data = await response.json();
-    let isDayTime = data[0]["IsDayTime"];
+    isDayTime = data[0]["IsDayTime"];
     // isDayTime = true;
 
     // Display tiles
