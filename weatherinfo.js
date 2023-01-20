@@ -45,6 +45,8 @@ let sunTile = document.getElementById("sun-tile");
 let sunsetTime;
 let sunriseTime;
 let isDayTime;
+let headerMode = "title";
+let boxMode = "box";
 
 // Mapping the days
 let dayMap = new Map([
@@ -83,10 +85,10 @@ const getDefaultLocationData = async () => {
     gmt = data[0]["TimeZone"]["GmtOffset"];
 
     locationDisplayArea.innerHTML = `<img src="assets/location.png">${defaultLocName}, ${defaultStateName}`;
+    displayMode(defaultLoc);
     getForecastData(defaultLoc);
     createTable(defaultLoc);
     displayConditions(defaultLoc);
-    displayMode(defaultLoc);
 }
 
 
@@ -179,24 +181,31 @@ const getForecastData = async (locKeyVal) => {
             let lowTemp = data["DailyForecasts"][i]["Temperature"]["Minimum"]["Value"];
 
             // Updating the today tile with data
-                dayTile.innerHTML = `<div class="title" id="title0"> ${dayOTW} </div>
-                <div class="info">
-                    <table>
-                        <tr>
-                            <td><div class="temp"> ${temperature}°F </div></td>
-                        </tr>
-                        <tr>
-                            <td><div class="condition"> ${condition} </div></td>
-                        </tr>
-                        <tr>
-                            <td id="highLow">
-                                <div class="high"> ↑ ${highTemp}°F </div>
-                                <div class="low"> ↓ ${lowTemp}°F </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="icon"> <img src="assets/jennicons/${iconNumber}-s.png"/> </div>`;   
+            dayTile.innerHTML = `<div class="title" id="title0"> ${dayOTW} </div>
+            <div class="info">
+                <table>
+                    <tr>
+                        <td><div class="temp"> ${temperature}°F </div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="condition"> ${condition} </div></td>
+                    </tr>
+                    <tr>
+                        <td id="highLow">
+                            <div class="high"> ↑ ${highTemp}°F </div>
+                            <div class="low"> ↓ ${lowTemp}°F </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="icon"> <img src="assets/jennicons/${iconNumber}-s.png"/> </div>`;   
+
+            // Changing title for night time mode
+            let todayTitle = document.querySelector("#title0");
+            if(!isDayTime) {
+                todayTitle.style.backgroundColor = `rgba(137, 147, 245, 0.8)`;
+                dayTile.style.boxShadow = `0px 4px 10px 1px rgba(200, 194, 242, .4)`;
+            }
             
             
             // Changing the background GIF
@@ -221,8 +230,15 @@ const getForecastData = async (locKeyVal) => {
         }
         else {
             //url("assets/backgrounds/morning-sunny.gif")
+            if(isDayTime) {
                 dayTile.innerHTML = `<div class="title"> ${dayOTW} </div>
                 <div class="icon"> <img src="assets/jennicons/${iconNumber}-s.png"/> </div><div class="temp"> ${temperature}°F </div>`;        
+            }
+            else {
+                console.log("Day time is "+isDayTime);
+                dayTile.innerHTML = `<div class="title title-night"> ${dayOTW} </div>
+                <div class="icon"> <img src="assets/jennicons/${iconNumber}-s.png"/> </div><div class="temp"> ${temperature}°F </div>`;        
+            }
         }
     }
 }
@@ -378,7 +394,7 @@ const displayConditions = async (locKeyVal) => {
     ]);
 
     // Displaying UV Information
-    UVTile.innerHTML = `<div class="title"> UV Index </div>
+    UVTile.innerHTML = `<div class="${headerMode}"> UV Index </div>
     <div class="condition-data">
         <div class="current-color">
             <img src="assets/conditicons/${iconMap.get(UVCat)}"/>
@@ -390,6 +406,8 @@ const displayConditions = async (locKeyVal) => {
         </div>
         <p class="current-text"> ${UVMap.get(UVCat)}</p>
      </div>`;
+
+     UVTile.classList.add(boxMode);
 
     // AIR QUALITY
     // Air Quality Variables
@@ -405,7 +423,7 @@ const displayConditions = async (locKeyVal) => {
     ]);
 
     // Displaying Air Quality Information
-    airTile.innerHTML = `<div class="title"> Air Quality </div>
+    airTile.innerHTML = `<div class="${headerMode}"> Air Quality </div>
     <div class="condition-data">
         <div class="current-color">
             <img src="assets/conditicons/${iconMap.get(airCat)}"/>
@@ -418,12 +436,14 @@ const displayConditions = async (locKeyVal) => {
         <p class="current-text">${airMap.get(airCat)}</p>
     </div>`;
 
+    airTile.classList.add(boxMode);
+
     // RAIN FALL
     // Rain Fall Variables
     let rainIn = data["DailyForecasts"][0]["Day"]["Rain"]["Value"];
 
     // Displaying Rain Fall Information
-    rainTile.innerHTML = `<div class="title"> Rainfall </div>
+    rainTile.innerHTML = `<div class="${headerMode}"> Rainfall </div>
     <div class="condition-data">
         <div class="current-color">
             <img id="drops" src="assets/conditicons/drops.png">
@@ -435,6 +455,8 @@ const displayConditions = async (locKeyVal) => {
         </div>
         <p class="current-text"> There have been ${rainIn} inches of rain recorded at your location over the past 24 hours </p>
      </div>`
+
+     rainTile.classList.add(boxMode);
 
     // WIND
     // Wind Variables
@@ -461,7 +483,7 @@ const displayConditions = async (locKeyVal) => {
     sunsetTime = convertTime2(data["DailyForecasts"][0]["Sun"]["Set"]);
     sunriseTime = convertTime2(data["DailyForecasts"][0]["Sun"]["Rise"]);
 
-    sunTile.innerHTML = `<div class="title"> Sunset and Sunrise </div>
+    sunTile.innerHTML = `<div class="${headerMode}"> Sunset and Sunrise </div>
     <div class="condition-data">
         <div class="current-color">
             <img src="assets/conditicons/sunset.png">
@@ -476,12 +498,15 @@ const displayConditions = async (locKeyVal) => {
         Curfew? Plans? Make sure to get home on time
     </p>`;
 
+    sunTile.classList.add(boxMode);
+
 }
 
 const displayMode = async (locKeyVal) => {
     const response = await fetch(`http://dataservice.accuweather.com/currentconditions/v1/${locKeyVal}?apikey=${apiKey}`);
     const data = await response.json();
     let isDayTime = data[0]["IsDayTime"];
+    // isDayTime = true;
 
     // Display tiles
     let titleHeader = document.querySelectorAll(".title");
@@ -514,6 +539,8 @@ const displayMode = async (locKeyVal) => {
         compass.style.backgroundSize = "contain";
         searchArea.style.background = `rgba(152,148,180,0.75)`;
         searchArea.style.color = `#FFFFFF`;
+        headerMode = "title title-night";
+        boxMode = "box-night";
     }
 }
 
