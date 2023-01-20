@@ -78,7 +78,7 @@
     flex-direction: row-reverse;
     gap: 30px;
     align-items: flex-start;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-content: center;
     
 }
